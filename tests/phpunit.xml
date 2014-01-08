@@ -1,0 +1,30 @@
+<phpunit bootstrap="bootstrap.php" colors="true">
+  <testsuites>
+    <testsuite name="Gs">
+      <directory>.</directory>
+    </testsuite>
+  </testsuites>
+
+
+  <filter>
+    <whitelist>
+      <directory suffix=".php">../lib/</directory>
+      <exclude>
+        <file>../Gs/QueryBuilder.php</file>
+        <file>../Gs/QueryBuilder/Statement.php</file>
+        <!-- <file>../application/controllers/ErrorController.php</file> -->
+        <!-- <directory suffix=".phtml">../application/</directory> -->
+      </exclude>
+    </whitelist>
+  </filter>
+
+
+  <logging>
+    <log type="coverage-clover" target="../coverage/coverage.xml"/>
+    <log type="coverage-html" target="../coverage" charset="UTF-8"
+      yui="true" highlight="true" lowUpperBound="50" highLowerBound="80"/>
+    <log type="testdox-html" target="../log/testdox.html" />
+  </logging>
+
+</phpunit>
+
