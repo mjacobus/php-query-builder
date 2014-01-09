@@ -161,6 +161,16 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function itAddsLeftJoin()
+    {
+        $this->o->from('table')->leftJoin('t1')->leftJoin('t2', 't1.id = t2.t1_id');
+        $sql = 'FROM table LEFT JOIN t1 LEFT JOIN t2 ON t1.id = t2.t1_id';
+        $this->assertEquals($sql, $this->o->getFrom()->toSql());
+    }
+
+    /**
+     * @test
+     */
     public function itCallsToSqlWhenConvertingToString()
     {
         $this->assertEquals($this->o->toSql(), (string) $this->o);

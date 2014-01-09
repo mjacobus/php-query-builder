@@ -229,7 +229,7 @@ class Gs_QueryBuilder
     }
 
     /**
-     * Adds Inner Join to the query
+     * Adds INNER JOIN to the query
      *
      * @param string $join
      * @param string $on
@@ -238,6 +238,19 @@ class Gs_QueryBuilder
     public function innerJoin($join, $on = null)
     {
         $this->getFrom()->innerJoin($join, $on);
+        return $this;
+    }
+
+    /**
+     * Adds LEFT JOIN to the query
+     *
+     * @param string $join
+     * @param string $on
+     * @return Gs_QueryBuilder
+     */
+    public function leftJoin($join, $on = null)
+    {
+        $this->getFrom()->leftJoin($join, $on);
         return $this;
     }
 
