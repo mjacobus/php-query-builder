@@ -41,7 +41,7 @@ class Gs_QueryBuilder_FromStatement extends Gs_QueryBuilder_Statement
      */
     public function toSql()
     {
-        if (empty($this->getParams())) {
+        if ($this->isEmpty()) {
             return '';
         } else {
             return 'FROM ' . implode(' ', $this->getParams());

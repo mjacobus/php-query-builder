@@ -26,7 +26,7 @@ class Gs_QueryBuilder_SelectStatement extends Gs_QueryBuilder_Statement
      */
     public function toSql()
     {
-        if (empty($this->getParams())) {
+        if (0 === count($this->getParams())) {
             return 'SELECT *';
         } else {
             return 'SELECT ' . implode(', ', $this->getParams());

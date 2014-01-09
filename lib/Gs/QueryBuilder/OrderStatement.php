@@ -16,7 +16,7 @@ class Gs_QueryBuilder_OrderStatement extends Gs_QueryBuilder_Statement
      */
     public function toSql()
     {
-        if (empty($this->getParams())) {
+        if ($this->isEmpty()) {
             return '';
         } else {
             return 'ORDER BY ' . implode(', ', $this->getParams());

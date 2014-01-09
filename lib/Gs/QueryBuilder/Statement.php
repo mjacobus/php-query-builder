@@ -103,7 +103,7 @@ class Gs_QueryBuilder_Statement
      */
     public function isEmpty()
     {
-        return empty($this->getParams());
+        return count($this->getParams()) === 0;
     }
 
     /**

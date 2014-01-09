@@ -16,7 +16,7 @@ class Gs_QueryBuilder_GroupStatement extends Gs_QueryBuilder_Statement
      */
     public function toSql()
     {
-        if (empty($this->getParams())) {
+        if ($this->isEmpty()) {
             return '';
         } else {
             return 'GROUP BY ' . implode(', ', $this->getParams());

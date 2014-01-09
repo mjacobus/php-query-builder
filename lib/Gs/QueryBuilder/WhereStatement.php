@@ -73,7 +73,7 @@ class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
      */
     public function toSql()
     {
-        if (empty($this->getParams())) {
+        if ($this->isEmpty()) {
             return '';
         } else {
             return 'WHERE ' . implode(' AND ', $this->getParams());
