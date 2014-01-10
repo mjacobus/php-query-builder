@@ -7,5 +7,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path()
 )));
 
-require_once 'Gs/QueryBuilder.php';
 
+define('FIXTURES_PATH', dirname(__FILE__) . '/fixtures/');
+
+require_once 'Gs/QueryBuilder.php';
