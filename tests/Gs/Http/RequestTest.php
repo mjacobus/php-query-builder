@@ -103,7 +103,7 @@ class Gs_Http_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanCheckIfRequestIsAjax()
     {
-        $this->o = new Gs_Http_Request(array('X_REQUESTED_WITH' => 'XMLHttpRequest'));
+        $this->o = new Gs_Http_Request(array('HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'));
         $this->assertTrue($this->o->isAjax());
 
         $this->o = new Gs_Http_Request();

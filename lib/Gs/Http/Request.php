@@ -125,7 +125,7 @@ class Gs_Http_Request
      */
     public function isAjax()
     {
-        return $this->getServer('X_REQUESTED_WITH') === 'XMLHttpRequest';
+        return $this->getServer('HTTP_X_REQUESTED_WITH') === 'XMLHttpRequest';
     }
 
     /**
