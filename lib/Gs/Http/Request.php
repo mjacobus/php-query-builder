@@ -8,7 +8,7 @@ require_once 'Gs/Params.php';
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_Request
+class Gs_Http_Request
 {
 
     /**

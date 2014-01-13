@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Gs/Request.php';
+require_once 'Gs/Http/Request.php';
 
-class Gs_RequestTest extends PHPUnit_Framework_TestCase
+class Gs_Http_RequestTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -15,7 +15,7 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->o = new Gs_Request($this->server, $this->post, $this->get);
+        $this->o = new Gs_Http_Request($this->server, $this->post, $this->get);
     }
 
     /**
@@ -56,7 +56,7 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanGetParams()
     {
-        $this->o = new Gs_Request(array(), array('a' => 'a'), array('a' => 'b', 'c' => 'c'));
+        $this->o = new Gs_Http_Request(array(), array('a' => 'a'), array('a' => 'b', 'c' => 'c'));
         $this->assertEquals('a', $this->o->getParam('a'));
         $this->assertEquals('c', $this->o->getParam('c'));
         $this->assertEquals('x', $this->o->getParam('y', 'x'));
@@ -67,7 +67,7 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanGetAllParams()
     {
-        $this->o = new Gs_Request(array(), array('a' => 'a'), array('a' => 'b', 'c' => 'c'));
+        $this->o = new Gs_Http_Request(array(), array('a' => 'a'), array('a' => 'b', 'c' => 'c'));
 
         $expectedParams = array(
             'a' => 'a',
@@ -82,7 +82,7 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanGetRequestMethod()
     {
-        $this->o = new Gs_Request(array('REQUEST_METHOD' => 'GET'));
+        $this->o = new Gs_Http_Request(array('REQUEST_METHOD' => 'GET'));
         $this->assertEquals('GET', $this->o->getMethod());
     }
 
@@ -91,10 +91,10 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanCheckIfRequestIsPost()
     {
-        $this->o = new Gs_Request(array('REQUEST_METHOD' => 'POST'));
+        $this->o = new Gs_Http_Request(array('REQUEST_METHOD' => 'POST'));
         $this->assertTrue($this->o->isPost());
 
-        $this->o = new Gs_Request(array('REQUEST_METHOD' => 'GET'));
+        $this->o = new Gs_Http_Request(array('REQUEST_METHOD' => 'GET'));
         $this->assertFalse($this->o->isPost());
     }
 
@@ -103,10 +103,10 @@ class Gs_RequestTest extends PHPUnit_Framework_TestCase
      */
     public function itCanCheckIfRequestIsAjax()
     {
-        $this->o = new Gs_Request(array('X_REQUESTED_WITH' => 'XMLHttpRequest'));
+        $this->o = new Gs_Http_Request(array('X_REQUESTED_WITH' => 'XMLHttpRequest'));
         $this->assertTrue($this->o->isAjax());
 
-        $this->o = new Gs_Request();
+        $this->o = new Gs_Http_Request();
         $this->assertFalse($this->o->isAjax());
     }
 
