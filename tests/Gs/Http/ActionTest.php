@@ -14,11 +14,17 @@ class Gs_Http_ActionTest extends PHPUnit_Framework_TestCase
      */
     protected $request;
 
+    /**
+     * @var Gs_Http_Response
+     */
+    protected $response;
+
     protected $sever = array('server' => 'varable');
 
     public function setUp()
     {
         $this->request = new Gs_Http_Request;
+        $this->response = new Gs_Http_Response;
         $this->o = new Gs_Http_Action;
     }
 
@@ -27,7 +33,7 @@ class Gs_Http_ActionTest extends PHPUnit_Framework_TestCase
      */
     public function itCanExecuteAction()
     {
-        $this->o->execute($this->request);
+        $this->o->execute($this->request, $this->response);
     }
 
 }
