@@ -25,7 +25,7 @@ class Gs_Http_ActionTest extends PHPUnit_Framework_TestCase
     {
         $this->request = new Gs_Http_Request;
         $this->response = new Gs_Http_Response;
-        $this->o = new Gs_Http_Action;
+        $this->o = new Gs_Http_Action($this->request, $this->response);
     }
 
     /**
@@ -33,7 +33,15 @@ class Gs_Http_ActionTest extends PHPUnit_Framework_TestCase
      */
     public function itCanExecuteAction()
     {
-        $this->o->execute($this->request, $this->response);
+        $this->o->execute();
+    }
+
+    /**
+     * @test
+     */
+    public function itCanSetRequest()
+    {
+        $this->assertSame($this->request, $this->o->getRequest());
     }
 
 }

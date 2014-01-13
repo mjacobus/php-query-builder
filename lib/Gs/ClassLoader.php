@@ -11,9 +11,15 @@ class Gs_ClassLoader
      */
     public function load($class)
     {
-        if (file_exits($file)) {
-            require_once $file;
-            return true;
+        $file = $this->fileName($class);
+
+        $paths = explode(PATH_SEPARATOR, get_include_path());
+
+        foreach($paths as $path) {
+            if (file_exists($path . '/' . $file)) {
+                require_once $file;
+                return true;
+            }
         }
 
         return false;
