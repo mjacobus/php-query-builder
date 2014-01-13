@@ -33,6 +33,7 @@ class Gs_ParamsTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($expectedParams, $this->o->getAll());
+        $this->assertEquals($expectedParams, $this->o->get());
     }
 
     /**
