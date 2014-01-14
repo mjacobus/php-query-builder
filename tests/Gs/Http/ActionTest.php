@@ -44,5 +44,13 @@ class Gs_Http_ActionTest extends PHPUnit_Framework_TestCase
         $this->assertSame($this->request, $this->o->getRequest());
     }
 
+    /**
+     * @test
+     */
+    public function itCanSetResponse()
+    {
+        $this->assertSame($this->response, $this->o->getResponse());
+    }
+
 }
 
