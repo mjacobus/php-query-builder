@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @see Gs_QueryBuilder
+ * @see Gs_QueryBuilder_Statement
  */
 require_once 'Gs/QueryBuilder/Statement.php';
 
