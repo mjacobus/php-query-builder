@@ -47,6 +47,14 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function itInitializesWithTheCorrectJoinsStatement()
+    {
+        $this->assertInstanceOf('Gs_QueryBuilder_JoinStatement', $this->o->getJoins());
+    }
+
+    /**
+     * @test
+     */
     public function itInitializesWithTheCorrectGroupStatement()
     {
         $this->assertInstanceOf('Gs_QueryBuilder_GroupStatement', $this->o->getGroup());
@@ -154,8 +162,8 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     public function itAddsInnerJoin()
     {
         $this->o->from('table')->innerJoin('t1')->innerJoin('t2', 't1.id = t2.t1_id');
-        $sql = 'FROM table INNER JOIN t1 INNER JOIN t2 ON t1.id = t2.t1_id';
-        $this->assertEquals($sql, $this->o->getFrom()->toSql());
+        $sql = 'INNER JOIN t1 INNER JOIN t2 ON t1.id = t2.t1_id';
+        $this->assertEquals($sql, $this->o->getJoins()->toSql());
     }
 
     /**
@@ -164,8 +172,8 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     public function itAddsLeftJoin()
     {
         $this->o->from('table')->leftJoin('t1')->leftJoin('t2', 't1.id = t2.t1_id');
-        $sql = 'FROM table LEFT JOIN t1 LEFT JOIN t2 ON t1.id = t2.t1_id';
-        $this->assertEquals($sql, $this->o->getFrom()->toSql());
+        $sql = 'LEFT JOIN t1 LEFT JOIN t2 ON t1.id = t2.t1_id';
+        $this->assertEquals($sql, $this->o->getJoins()->toSql());
     }
 
     /**

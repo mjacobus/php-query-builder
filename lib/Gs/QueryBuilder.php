@@ -16,6 +16,11 @@ require_once 'Gs/QueryBuilder/SelectStatement.php';
 require_once 'Gs/QueryBuilder/FromStatement.php';
 
 /**
+ * @see Gs_QueryBuilder_JoinStatement
+ */
+require_once 'Gs/QueryBuilder/JoinStatement.php';
+
+/**
  * @see Gs_QueryBuilder_WhereStatement
  */
 require_once 'Gs/QueryBuilder/WhereStatement.php';
@@ -57,6 +62,11 @@ class Gs_QueryBuilder
     protected $_order;
 
     /**
+     * @var Gs_QueryBuilder_JoinStatement
+     */
+    protected $_joins;
+
+    /**
      * @var Gs_QueryBuilder_GroupStatement
      */
     protected $_group;
@@ -80,6 +90,7 @@ class Gs_QueryBuilder
         $this->_from   = new Gs_QueryBuilder_FromStatement($this);
         $this->_where  = new Gs_QueryBuilder_WhereStatement($this);
         $this->_order  = new Gs_QueryBuilder_OrderStatement($this);
+        $this->_joins  = new Gs_QueryBuilder_JoinStatement($this);
         $this->_group  = new Gs_QueryBuilder_GroupStatement($this);
 
         if (isset($options['helper'])) {
@@ -109,6 +120,16 @@ class Gs_QueryBuilder
     public function getFrom()
     {
         return $this->_from;
+    }
+
+    /**
+     * Get the JOINS statements
+     *
+     * @return Gs_QueryBuilder_JoinStatement
+     */
+    public function getJoins()
+    {
+        return $this->_joins;
     }
 
     /**
@@ -185,6 +206,7 @@ class Gs_QueryBuilder
         return array(
             $this->getSelect(),
             $this->getFrom(),
+            $this->getJoins(),
             $this->getWhere(),
             $this->getGroup(),
             $this->getOrder(),
@@ -237,7 +259,7 @@ class Gs_QueryBuilder
      */
     public function innerJoin($join, $on = null)
     {
-        $this->getFrom()->innerJoin($join, $on);
+        $this->getJoins()->innerJoin($join, $on);
         return $this;
     }
 
@@ -250,7 +272,7 @@ class Gs_QueryBuilder
      */
     public function leftJoin($join, $on = null)
     {
-        $this->getFrom()->leftJoin($join, $on);
+        $this->getJoins()->leftJoin($join, $on);
         return $this;
     }
 
