@@ -24,6 +24,8 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
     }
 
     /**
+     * Factory Select Builder
+     *
      * @params array $params The select filds for the select builder
      * @return Gs_QueryBuilder_Select
      */
@@ -32,6 +34,40 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
         $select =  new Gs_QueryBuilder_Select();
         $select->select($params);
         return $select;
+    }
+
+    /**
+     * Factory Update Builder
+     *
+     * @param string $table the table to update
+     * @return Gs_QueryBuilder_Update
+     */
+    public static function update($table = null)
+    {
+        $query =  new Gs_QueryBuilder_Update();
+
+        if ($table) {
+            $query->table($table);
+        }
+
+        return $query;
+    }
+
+    /**
+     * Factory Insert Builder
+     *
+     * @param string $table the table to update
+     * @return Gs_QueryBuilder_Insert
+     */
+    public static function insert($table = null)
+    {
+        $query =  new Gs_QueryBuilder_Insert();
+
+        if ($table) {
+            $query->into($table);
+        }
+
+        return $query;
     }
 
 }

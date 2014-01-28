@@ -13,6 +13,11 @@ class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
 {
 
     /**
+     * @var string the table name
+     */
+    protected $_table;
+
+    /**
      * @var array the values to insert into the table
      */
     protected $_values;
@@ -57,9 +62,6 @@ class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
         return $this->_values;
     }
 
-    /**
-     * @return string
-     */
     public function getRawQuery()
     {
         $sql = array('INSERT INTO');

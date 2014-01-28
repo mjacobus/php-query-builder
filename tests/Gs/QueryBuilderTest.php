@@ -242,4 +242,24 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('SELECT a, b', $query->toSql());
     }
 
+    /**
+     * @test
+     */
+    public function canFactoryUpdate()
+    {
+        $query = Gs_QueryBuilder::update('table')->addSet('foo', 'bar');
+        $this->assertInstanceOf('Gs_QueryBuilder_Update', $query);
+        $this->assertEquals('UPDATE table SET foo = "bar"', $query->toSql());
+    }
+
+    /**
+     * @test
+     */
+    public function canFactoryInsert()
+    {
+        $query = Gs_QueryBuilder::insert('table')->values(array('foo' => 'bar'));
+        $this->assertInstanceOf('Gs_QueryBuilder_Insert', $query);
+        $this->assertEquals('INSERT INTO table (foo) VALUES ("bar")', $query->toSql());
+    }
+
 }
