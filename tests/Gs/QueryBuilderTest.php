@@ -232,6 +232,14 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expectedParams, $this->o->getGroup()->getParams());
     }
 
-
+    /**
+     * @test
+     */
+    public function canFactorySelect()
+    {
+        $query = Gs_QueryBuilder::factorySelect(array('a', 'b'));
+        $this->assertInstanceOf('Gs_QueryBuilder_Select', $query);
+        $this->assertEquals('SELECT a, b', $query->toSql());
+    }
 
 }
