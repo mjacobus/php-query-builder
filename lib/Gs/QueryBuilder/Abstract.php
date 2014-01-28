@@ -75,6 +75,21 @@ class Gs_QueryBuilder_Abstract
      */
     public function toSql(array $params = array())
     {
+        $sql = $this->getRawQuery();
+
+        if (empty($params)) {
+            return $sql;
+        } else {
+            return $this->getHelper()->replacePlaceholders($sql, $params);
+        }
+    }
+
+    /**
+     * Get the sql without any replacements
+     * @return string
+     */
+    public function getRawQuery()
+    {
         $sql = array();
 
         foreach ($this->getStatements() as $statement) {
@@ -83,13 +98,7 @@ class Gs_QueryBuilder_Abstract
             }
         }
 
-        $sql =  implode(' ', $sql);
-
-        if (empty($params)) {
-            return $sql;
-        } else {
-            return $this->getHelper()->replacePlaceholders($sql, $params);
-        }
+        return implode(' ', $sql);
     }
 
     /**

@@ -36,7 +36,7 @@ require_once 'Gs/QueryBuilder/OrderStatement.php';
 require_once 'Gs/QueryBuilder/GroupStatement.php';
 
 /**
- * Helper for building classes
+ * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
 class Gs_QueryBuilder_Select extends Gs_QueryBuilder_Abstract
