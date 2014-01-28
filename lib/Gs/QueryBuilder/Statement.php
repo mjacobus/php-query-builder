@@ -21,9 +21,9 @@ class Gs_QueryBuilder_Statement
     protected $_params = array();
 
     /**
-     * @param Gs_QueryBuilder $builder
+     * @param Gs_QueryBuilder_Abstract $builder
      */
-    public function __construct(Gs_QueryBuilder $builder)
+    public function __construct(Gs_QueryBuilder_Abstract $builder)
     {
         $this->_builder = $builder;
     }
