@@ -68,7 +68,7 @@ class Gs_QueryBuilder_SetStatement extends Gs_QueryBuilder_Statement
 
         foreach($params as $column => $value) {
             $set[] = implode(' = ', array(
-                $column, $this->getBuilder()->getHelper()->quoteIfNecessary($value)
+                $column, $this->getBuilder()->getHelper()->toDbValue($value)
             ));
         }
 

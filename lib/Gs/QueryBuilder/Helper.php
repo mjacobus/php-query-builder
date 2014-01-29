@@ -44,6 +44,16 @@ class Gs_QueryBuilder_Helper
     }
 
     /**
+     * Informs if given value is a string
+     * @param string $value
+     * @return bool
+     */
+    public function isString($value)
+    {
+        return gettype($value) === 'string';
+    }
+
+    /**
      * Informs if given value is a placeholder
      * @param string $value
      * @return bool
@@ -70,5 +80,47 @@ class Gs_QueryBuilder_Helper
             );
         }
         return $string;
+    }
+
+    /**
+     * Get the value that should be placed into the query
+     * I.E:
+     *     true     => TRUE
+     *     "string" => "string"
+     *     null     => NULL
+     *
+     *     To force return as it is
+     *     array('value' => $someVar) => $someVar
+     *
+     * @param mixed $value
+     * @return string
+     */
+    public function toDbValue($value)
+    {
+        if ($this->isString($value)){
+            return $this->quoteIfNecessary($value);
+        }
+
+        // smelly code. Refactor
+
+        if ($value === true) {
+            return 'TRUE';
+        }
+
+        if ($value === false) {
+            return 'FALSE';
+        }
+
+        if ($value === null) {
+            return 'NULL';
+        }
+
+        if (is_array($value)) {
+            if (isset($value['value'])) {
+                return $value['value'];
+            }
+        }
+
+        return $value;
     }
 }

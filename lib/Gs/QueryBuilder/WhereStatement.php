@@ -30,7 +30,7 @@ class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
 
         if ($value !== null) {
             $parts[] = $operator;
-            $parts[] = $this->getBuilder()->getHelper()->quoteIfNecessary($value);
+            $parts[] = $this->getBuilder()->getHelper()->toDbValue($value);
         }
 
         $this->addParam(implode(' ', $parts));

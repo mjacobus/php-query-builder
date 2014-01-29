@@ -78,7 +78,7 @@ class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
             $columnValues = array();
 
             foreach ($values as $value) {
-                $columnValues[] = $this->getHelper()->quoteIfNecessary($value);
+                $columnValues[] = $this->getHelper()->toDbValue($value);
             }
 
             $sql[] = '(' . implode(', ', $columnValues) . ')';

@@ -65,4 +65,20 @@ class Gs_QueryBuilder_HelperTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->o->isPlaceholder('1'));
     }
 
+    /**
+     * @test
+     */
+    public function itCanConverValueToTheDbEquivalentValue()
+    {
+        $this->assertEquals('NULL', $this->o->toDbValue(null));
+        $this->assertEquals('FALSE', $this->o->toDbValue(false));
+        $this->assertEquals('TRUE', $this->o->toDbValue(true));
+        $this->assertEquals('"abc"', $this->o->toDbValue('abc'));
+        $this->assertEquals(':placeholder', $this->o->toDbValue(':placeholder'));
+
+        $arrayValue = $this->o->toDbValue(array('value' => '0000'));
+        $this->assertEquals('0000', $arrayValue);
+        $this->assertInternalType('string', $arrayValue);
+    }
+
 }
