@@ -12,6 +12,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->o = new Gs_QueryBuilder_Update();
+        $this->o->getHelper()->setDoubleQuoted(true);
     }
 
     /**

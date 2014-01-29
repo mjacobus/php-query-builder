@@ -14,6 +14,7 @@ class Gs_QueryBuilder_HelperTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->o = new Gs_QueryBuilder_Helper;
+        $this->o->setDoubleQuoted(true);
     }
 
     /**
@@ -45,11 +46,21 @@ class Gs_QueryBuilder_HelperTest extends PHPUnit_Framework_TestCase
      */
     public function itQuotesValue()
     {
+
+
         $this->assertEquals('"a"', $this->o->quote('a'));
         $this->assertEquals('"abc"', $this->o->quote('abc'));
         $this->assertEquals('"1"', $this->o->quote('1'));
         $this->assertEquals('"a\"bc\""', $this->o->quote('a"bc"'));
         $this->assertEquals('"a\'bc"', $this->o->quote('a\'bc'));
+
+        $this->o->setDoubleQuoted(false);
+
+        $this->assertEquals("'a'", $this->o->quote('a'));
+        $this->assertEquals("'abc'", $this->o->quote('abc'));
+        $this->assertEquals("'1'", $this->o->quote('1'));
+        $this->assertEquals("'a\'bc\''", $this->o->quote("a'bc'"));
+        $this->assertEquals("'a\'bc'", $this->o->quote('a\'bc'));
     }
 
     /**

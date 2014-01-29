@@ -13,6 +13,7 @@ class Gs_QueryBuilder_InsertTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->o = new Gs_QueryBuilder_Insert;
+        $this->o->getHelper()->setDoubleQuoted(true);
     }
 
     /**

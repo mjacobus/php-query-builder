@@ -19,6 +19,7 @@ class Gs_QueryBuilder_WhereStatementTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->o = new Gs_QueryBuilder_WhereStatement(new Gs_QueryBuilder);
+        $this->o->getBuilder()->getHelper()->setDoubleQuoted(true);
     }
 
     /**

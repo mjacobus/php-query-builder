@@ -7,15 +7,71 @@ class Gs_QueryBuilder_Helper
 {
 
     /**
-     * Quote value
+     * Default to false. Works in Mysql and Postgres
+     * @var boolean wheter should be double quoted
+     */
+    protected $_doubleQuoted = false;
+
+    /**
+     * Set the double quotes flag
+     *
+     * @param bool $flag
+     * @return string
+     */
+    public function setDoubleQuoted($flag)
+    {
+        $this->_doubleQuoted = $flag;
+        return $this;
+    }
+
+    /**
+     * Get the double quote flag
+     *
+     * @return bool
+     */
+    public function isDoubleQuoted()
+    {
+        return $this->_doubleQuoted;
+    }
+
+    /**
+     * Quote value with either double or single quotes, depending on the
+     * configuration
      *
      * @param string $value
      * @return string
      */
     public function quote($value)
     {
+        if ($this->isDoubleQuoted()) {
+            return $this->doubleQuote($value);
+        } else {
+            return $this->singleQuote($value);
+        }
+    }
+
+    /**
+     * Quote value with double quotes
+     *
+     * @param string $value
+     * @return string
+     */
+    public function doubleQuote($value)
+    {
         $escaped =  str_replace('"', '\"', $value);
         return '"' . $escaped . '"';
+    }
+
+    /**
+     * Quote value with single quotes
+     *
+     * @param string $value
+     * @return string
+     */
+    public function singleQuote($value)
+    {
+        $escaped =  str_replace("'", "\'", $value);
+        return "'" . $escaped . "'";
     }
 
     /**

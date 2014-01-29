@@ -10,6 +10,7 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->o = new Gs_QueryBuilder();
+        $this->o->getHelper()->setDoubleQuoted(true);
     }
 
     /**
@@ -249,7 +250,7 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     {
         $query = Gs_QueryBuilder::update('table')->addSet('foo', 'bar');
         $this->assertInstanceOf('Gs_QueryBuilder_Update', $query);
-        $this->assertEquals('UPDATE table SET foo = "bar"', $query->toSql());
+        $this->assertEquals("UPDATE table SET foo = 'bar'", $query->toSql());
     }
 
     /**
@@ -259,7 +260,7 @@ class Gs_QueryBuilderTest extends PHPUnit_Framework_TestCase
     {
         $query = Gs_QueryBuilder::insert('table')->values(array('foo' => 'bar'));
         $this->assertInstanceOf('Gs_QueryBuilder_Insert', $query);
-        $this->assertEquals('INSERT INTO table (foo) VALUES ("bar")', $query->toSql());
+        $this->assertEquals("INSERT INTO table (foo) VALUES ('bar')", $query->toSql());
     }
 
 }
