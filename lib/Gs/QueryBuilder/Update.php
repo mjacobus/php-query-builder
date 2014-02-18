@@ -101,6 +101,7 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
             $this->getSet(),
             $this->getWhere(),
             $this->getOrder(),
+            $this->getLimit(),
         );
     }
 

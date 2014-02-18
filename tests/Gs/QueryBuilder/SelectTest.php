@@ -50,6 +50,14 @@ class Gs_QueryBuilder_SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function itInitializesWithTheCorrectLimitStatement()
+    {
+        $this->assertInstanceOf('Gs_QueryBuilder_LimitStatement', $this->o->getLimit());
+    }
+
+    /**
+     * @test
+     */
     public function itInitializesWithTheCorrectJoinsStatement()
     {
         $this->assertInstanceOf('Gs_QueryBuilder_JoinStatement', $this->o->getJoins());
@@ -132,6 +140,14 @@ class Gs_QueryBuilder_SelectTest extends PHPUnit_Framework_TestCase
 
         $sql .= ' ORDER BY foo, bar DESC';
         $this->o->orderBy(array('foo', 'bar DESC'));
+        $this->assertEquals($sql, $this->o->toSql());
+
+        $sql .= ' LIMIT 10';
+        $this->o->limit(10);
+        $this->assertEquals($sql, $this->o->toSql());
+
+        $sql .= ', 2';
+        $this->o->limit(10, 2);
         $this->assertEquals($sql, $this->o->toSql());
     }
 

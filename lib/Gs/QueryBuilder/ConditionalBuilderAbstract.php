@@ -21,6 +21,11 @@ require_once 'Gs/QueryBuilder/WhereStatement.php';
 require_once 'Gs/QueryBuilder/OrderStatement.php';
 
 /**
+ * @see Gs_QueryBuilder_LimitStatement
+ */
+require_once 'Gs/QueryBuilder/LimitStatement.php';
+
+/**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
@@ -43,6 +48,11 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
     protected $_joins;
 
     /**
+     * @var Gs_QueryBuilder_LimitStatement
+     */
+    protected $_limit;
+
+    /**
      * Constructor
      * Set up statements
      */
@@ -50,6 +60,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
     {
         $this->_where  = new Gs_QueryBuilder_WhereStatement($this);
         $this->_order  = new Gs_QueryBuilder_OrderStatement($this);
+        $this->_limit  = new Gs_QueryBuilder_LimitStatement($this);
         $this->_joins  = new Gs_QueryBuilder_JoinStatement($this);
     }
 
@@ -84,6 +95,16 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
     }
 
     /**
+     * Get the LIMIT statement
+     *
+     * @return Gs_QueryBuilder_OrderStatement
+     */
+    public function getLimit()
+    {
+        return $this->_limit;
+    }
+
+    /**
      * Get the statements in the order they should be rendered
      *
      * @return array[Gs_QueryBuilder_Statement]
@@ -94,6 +115,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
             $this->getJoins(),
             $this->getWhere(),
             $this->getOrder(),
+            $this->getLimit(),
         );
     }
 
@@ -163,6 +185,25 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
     public function orderBy($params)
     {
         $this->getOrder()->addParams((array) $params);
+        return $this;
+    }
+
+    /**
+     * Add limit
+     * I.E.
+     *
+     * @param int $limit
+     * @param int $offset
+     * @return Gs_QueryBuilder
+     */
+    public function limit($limit, $offset = null)
+    {
+        if ($offset) {
+            $this->getLimit()->setParams(array($limit, $offset));
+        } else {
+            $this->getLimit()->setParams(array($limit));
+        }
+
         return $this;
     }
 
