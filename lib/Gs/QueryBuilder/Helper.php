@@ -126,14 +126,11 @@ class Gs_QueryBuilder_Helper
      * @param array $values the key value pair of placeholders
      * @return string the string to be replaced
      */
-    public function replacePlaceholders($string, $values)
+    public function replacePlaceholders($string, $values, $quoteIfNecessary = true)
     {
         foreach($values as $placeholder => $value) {
-            $string = str_replace(
-                ":{$placeholder}",
-                $this->quoteIfNecessary($value),
-                $string
-            );
+            $replacement = $quoteIfNecessary ? $this->quoteIfNecessary($value) : $value;
+            $string = str_replace(":{$placeholder}", $replacement, $string);
         }
         return $string;
     }

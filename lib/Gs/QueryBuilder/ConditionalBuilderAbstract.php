@@ -111,12 +111,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      */
     public function getStatements()
     {
-        return array(
-            $this->getJoins(),
-            $this->getWhere(),
-            $this->getOrder(),
-            $this->getLimit(),
-        );
+        return array();
     }
 
     /**

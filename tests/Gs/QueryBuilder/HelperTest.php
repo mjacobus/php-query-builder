@@ -92,4 +92,24 @@ class Gs_QueryBuilder_HelperTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('string', $arrayValue);
     }
 
+    /**
+     * @test
+     */
+    public function itCanReplacePlaceholders()
+    {
+        $string =  'the name is :lastname, :name :lastname.';
+
+        $expectedString = 'the name is Bond, James Bond.';
+
+        $result = $this->o->replacePlaceholders(
+            $string,
+            array(
+                'name'     => 'James',
+                'lastname' => 'Bond',
+            ),
+            false
+        );
+        $this->assertEquals($expectedString, $result);
+    }
+
 }
