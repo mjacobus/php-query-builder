@@ -1,23 +1,12 @@
 <?php
 
+use PO\Hash;
+
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_Params implements Iterator, ArrayAccess
+class Gs_Params extends Hash
 {
-
-    /**
-     * @var array
-     **/
-    protected $_params = array();
-
-    /**
-     * @param array $params Key => Value array
-     */
-    public function __construct(array $params = array())
-    {
-        $this->setValues($params);
-    }
 
     /**
      * Set the params
@@ -54,14 +43,10 @@ class Gs_Params implements Iterator, ArrayAccess
     public function get($key = null, $default = null)
     {
         if ($key === null) {
-            return $this->getAll();
+            return $this->toArray();
         }
 
-        if ($this->keyExists($key)) {
-            return $this->_params[$key];
-        }
-
-        return $default;
+        return $this->offsetGet($key, $default);
     }
 
     /**
@@ -69,9 +54,8 @@ class Gs_Params implements Iterator, ArrayAccess
      **/
     public function getAll()
     {
-        return $this->_params;
+        return $this->toArray();
     }
-
 
     /**
      * Check if value is set
@@ -79,85 +63,7 @@ class Gs_Params implements Iterator, ArrayAccess
      */
     public function keyExists($key)
     {
-        return array_key_exists($key, $this->_params);
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function key()
-    {
-        return key($this->_params);
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function rewind()
-    {
-        return reset($this->_params);
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function next()
-    {
-        return next($this->_params);
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function current()
-    {
-        return current($this->_params);
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function valid()
-    {
-        $key = key($this->_params);
-        return ($key !== null && $key !== false);
-    }
-
-    /**
-     * ArrayAccess implementation
-     */
-    public function offsetGet($key)
-    {
-        return $this->get($key);
-    }
-
-    /**
-     * ArrayAccess implementation
-     */
-    public function offsetSet($key, $value)
-    {
-        return $this->setValue($key, $value);
-    }
-
-    /**
-     * ArrayAccess implementation
-     */
-    public function offsetExists($key)
-    {
-        return $this->keyExists($key);
-    }
-
-    /**
-     * ArrayAccess implementation
-     */
-    public function offsetUnset($key)
-    {
-        if ($this->offsetExists($key)) {
-            unset($this->_params[$key]);
-        }
-
-        return $this;
-
+        return $this->offsetExists($key);
     }
 
 }

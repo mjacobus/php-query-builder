@@ -11,3 +11,5 @@ set_include_path(implode(PATH_SEPARATOR, array(
 define('FIXTURES_PATH', dirname(__FILE__) . '/fixtures/');
 
 require_once 'Gs/QueryBuilder.php';
+
+require_once LIB_PATH . '/../vendor/autoload.php';

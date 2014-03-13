@@ -100,7 +100,7 @@ class Gs_ParamsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     **/
+     */
     public function canUnsetValue()
     {
         $this->o->offsetUnset('a');
