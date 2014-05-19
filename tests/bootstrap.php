@@ -1,15 +1,9 @@
 <?php
 
-define('LIB_PATH', realpath(dirname(__FILE__) . '/../lib'));
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
-set_include_path(implode(PATH_SEPARATOR, array(
-    LIB_PATH,
-    get_include_path()
-)));
-
-
-define('FIXTURES_PATH', dirname(__FILE__) . '/fixtures/');
-
-require_once 'Gs/QueryBuilder.php';
-
-require_once LIB_PATH . '/../vendor/autoload.php';
+$libPath   = realpath(dirname(__FILE__) . '/../lib/');
+$testsPath = realpath(dirname(__FILE__) . '/../tests/');
+$loader    = require $libPath . '/../vendor/autoload.php';
+$loader->add('POTests\\', $testsPath);
