@@ -1,32 +1,23 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Select
- */
-require_once 'Gs/QueryBuilder/Select.php';
+namespace PO;
 
-/**
- * @see Gs_QueryBuilder_Update
- */
-require_once 'Gs/QueryBuilder/Update.php';
-
-/**
- * @see Gs_QueryBuilder_Insert
- */
-require_once 'Gs/QueryBuilder/Insert.php';
+use Gs\QueryBuilder\Select;
+use Gs\QueryBuilder\Update;
+use Gs\QueryBuilder\Insert;
 
 /**
  * Helper for building classes
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder extends Gs_QueryBuilder_Select
+class QueryBuilder extends Select
 {
 
     /**
      * @deprecated
      *
-     *     Please use Gs_QueryBuilder::factorySelect($fields) instead.
-     *     Alternatively you can use new Gs_QueryBuilder_Select($params)
+     *     Please use PO\QueryBuilder::factorySelect($fields) instead.
+     *     Alternatively you can use new PO\QueryBuilder\Select($params)
      */
     public function __construct(array $params = array())
     {
@@ -37,11 +28,11 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
      * Factory Select Builder
      *
      * @params array $params The select filds for the select builder
-     * @return Gs_QueryBuilder_Select
+     * @return PO\QueryBuilder\Select
      */
     public static function factorySelect($params = array())
     {
-        $select =  new Gs_QueryBuilder_Select();
+        $select = new Select();
         $select->select($params);
         return $select;
     }
@@ -50,11 +41,11 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
      * Factory Update Builder
      *
      * @param string $table the table to update
-     * @return Gs_QueryBuilder_Update
+     * @return PO\QueryBuilder\Update
      */
     public static function update($table = null)
     {
-        $query =  new Gs_QueryBuilder_Update();
+        $query = new Update();
 
         if ($table) {
             $query->table($table);
@@ -67,11 +58,11 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
      * Factory Insert Builder
      *
      * @param string $table the table to update
-     * @return Gs_QueryBuilder_Insert
+     * @return PO\QueryBuilder\Insert
      */
     public static function insert($table = null)
     {
-        $query =  new Gs_QueryBuilder_Insert();
+        $query = new Insert();
 
         if ($table) {
             $query->into($table);
@@ -79,5 +70,4 @@ class Gs_QueryBuilder extends Gs_QueryBuilder_Select
 
         return $query;
     }
-
 }

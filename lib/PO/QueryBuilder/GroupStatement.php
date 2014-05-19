@@ -1,15 +1,15 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Statement
- */
+namespace PO\QueryBuilder;
+
 require_once 'Gs/QueryBuilder/Statement.php';
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_GroupStatement extends Gs_QueryBuilder_Statement
+class GroupStatement extends Statement
 {
+
     /**
      * Return the resulting query
      * @return string

@@ -1,16 +1,18 @@
 <?php
 
+namespace PO\QueryBuilder;
+
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_Helper
+class Helper
 {
 
     /**
      * Default to false. Works in Mysql and Postgres
      * @var boolean wheter should be double quoted
      */
-    protected $_doubleQuoted = false;
+    protected $doubleQuoted = false;
 
     /**
      * Set the double quotes flag
@@ -20,7 +22,7 @@ class Gs_QueryBuilder_Helper
      */
     public function setDoubleQuoted($flag)
     {
-        $this->_doubleQuoted = $flag;
+        $this->doubleQuoted = $flag;
         return $this;
     }
 
@@ -31,7 +33,7 @@ class Gs_QueryBuilder_Helper
      */
     public function isDoubleQuoted()
     {
-        return $this->_doubleQuoted;
+        return $this->doubleQuoted;
     }
 
     /**
@@ -128,7 +130,7 @@ class Gs_QueryBuilder_Helper
      */
     public function replacePlaceholders($string, $values, $quoteIfNecessary = true)
     {
-        foreach($values as $placeholder => $value) {
+        foreach ($values as $placeholder => $value) {
             $replacement = $quoteIfNecessary ? $this->quoteIfNecessary($value) : $value;
             $string = str_replace(":{$placeholder}", $replacement, $string);
         }
@@ -150,7 +152,7 @@ class Gs_QueryBuilder_Helper
      */
     public function toDbValue($value)
     {
-        if ($this->isString($value)){
+        if ($this->isString($value)) {
             return $this->quoteIfNecessary($value);
         }
 

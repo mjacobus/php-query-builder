@@ -1,56 +1,39 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Abstract
- */
-require_once 'Gs/QueryBuilder/Abstract.php';
+namespace PO\QueryBuilder;
 
-/**
- * @see Gs_QueryBuilder_JoinStatement
- */
-require_once 'Gs/QueryBuilder/JoinStatement.php';
-
-/**
- * @see Gs_QueryBuilder_WhereStatement
- */
-require_once 'Gs/QueryBuilder/WhereStatement.php';
-
-/**
- * @see Gs_QueryBuilder_OrderStatement
- */
-require_once 'Gs/QueryBuilder/OrderStatement.php';
-
-/**
- * @see Gs_QueryBuilder_LimitStatement
- */
-require_once 'Gs/QueryBuilder/LimitStatement.php';
+use Gs\QueryBuilder\Base;
+use Gs\QueryBuilder\JoinStatement;
+use Gs\QueryBuilder\WhereStatement;
+use Gs\QueryBuilder\OrderStatement;
+use Gs\QueryBuilder\LimitStatement;
 
 /**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstract
+class ConditionalBuilderAbstract extends Base
 {
 
     /**
-     * @var Gs_QueryBuilder_WhereStatement
+     * @var PO\QueryBuilder\WhereStatement
      */
-    protected $_where;
+    protected $where;
 
     /**
-     * @var Gs_QueryBuilder_OrderStatement
+     * @var PO\QueryBuilder\OrderStatement
      */
-    protected $_order;
+    protected $order;
 
     /**
-     * @var Gs_QueryBuilder_JoinStatement
+     * @var PO\QueryBuilder\JoinStatement
      */
-    protected $_joins;
+    protected $joins;
 
     /**
-     * @var Gs_QueryBuilder_LimitStatement
+     * @var PO\QueryBuilder\LimitStatement
      */
-    protected $_limit;
+    protected $limit;
 
     /**
      * Constructor
@@ -58,56 +41,56 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      */
     public function initialize()
     {
-        $this->_where  = new Gs_QueryBuilder_WhereStatement($this);
-        $this->_order  = new Gs_QueryBuilder_OrderStatement($this);
-        $this->_limit  = new Gs_QueryBuilder_LimitStatement($this);
-        $this->_joins  = new Gs_QueryBuilder_JoinStatement($this);
+        $this->where  = new WhereStatement($this);
+        $this->order  = new OrderStatement($this);
+        $this->limit  = new LimitStatement($this);
+        $this->joins  = new JoinStatement($this);
     }
 
     /**
      * Get the JOINS statements
      *
-     * @return Gs_QueryBuilder_JoinStatement
+     * @return PO\QueryBuilder\JoinStatement
      */
     public function getJoins()
     {
-        return $this->_joins;
+        return $this->joins;
     }
 
     /**
      * Get the WHERE statement
      *
-     * @return Gs_QueryBuilder_WhereStatement
+     * @return PO\QueryBuilder\WhereStatement
      */
     public function getWhere()
     {
-        return $this->_where;
+        return $this->where;
     }
 
     /**
      * Get the ORDER statement
      *
-     * @return Gs_QueryBuilder_OrderStatement
+     * @return PO\QueryBuilder\OrderStatement
      */
     public function getOrder()
     {
-        return $this->_order;
+        return $this->order;
     }
 
     /**
      * Get the LIMIT statement
      *
-     * @return Gs_QueryBuilder_OrderStatement
+     * @return PO\QueryBuilder\OrderStatement
      */
     public function getLimit()
     {
-        return $this->_limit;
+        return $this->limit;
     }
 
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[Gs_QueryBuilder_Statement]
+     * @return array[PO\QueryBuilder\Statement]
      */
     public function getStatements()
     {
@@ -119,7 +102,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      *
      * @param string $join
      * @param string $on
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function innerJoin($join, $on = null)
     {
@@ -132,7 +115,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      *
      * @param string $join
      * @param string $on
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function leftJoin($join, $on = null)
     {
@@ -155,7 +138,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      * @param array|string $conditions
      * @param string $value
      * @param string $operator
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function where($conditions, $value = null, $operator = '=')
     {
@@ -175,7 +158,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      * $this->orderBy('foo')->orderBy('bar DESC')->orderBy(array('foobar'));
      *
      * @param string $params the field and direction to order by
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function orderBy($params)
     {
@@ -189,7 +172,7 @@ class Gs_QueryBuilder_ConditionalBuilderAbstract extends Gs_QueryBuilder_Abstrac
      *
      * @param int $limit
      * @param int $offset
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function limit($limit, $offset = null)
     {

@@ -11,9 +11,9 @@ use PO\QueryBuilder\Helper;
 abstract class Base
 {
     /**
-     * @var PO\QueryBuilder_Helper
+     * @var PO\QueryBuilder\Helper
      */
-    protected $_helper;
+    protected $helper;
 
 
     /**
@@ -21,7 +21,7 @@ abstract class Base
      *
      * @param array $options Hash of options
      *              Allowed options:
-     *                  helper: PO\QueryBuilder_Helper
+     *                  helper: PO\QueryBuilder\Helper
      */
     public function __construct($options = array())
     {
@@ -29,7 +29,7 @@ abstract class Base
         if (isset($options['helper'])) {
             $helper = $options['helper'];
         } else {
-            $helper = new PO\QueryBuilder_Helper;
+            $helper = new PO\QueryBuilder\Helper;
         }
 
         $this->setHelper($helper);
@@ -47,23 +47,23 @@ abstract class Base
     /**
      * Set the helper
      *
-     * @param PO\QueryBuilder_Helper $helper
+     * @param PO\QueryBuilder\Helper $helper
      * @return PO\QueryBuilder
      */
-    public function setHelper(PO\QueryBuilder_Helper $helper)
+    public function setHelper(Helper $helper)
     {
-        $this->_helper = $helper;
+        $this->helper = $helper;
         return $this;
     }
 
     /**
      * Get the helper
      *
-     * @return PO\QueryBuilder_Helper
+     * @return PO\QueryBuilderHelper
      */
     public function getHelper()
     {
-        return $this->_helper;
+        return $this->helper;
     }
 
     /**

@@ -1,14 +1,13 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Statement
- */
-require_once 'Gs/QueryBuilder/Statement.php';
+namespace PO\QueryBuilder;
+
+use Statement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_FromStatement extends Gs_QueryBuilder_Statement
+class FromStatement extends Statement
 {
 
     /**
@@ -16,7 +15,7 @@ class Gs_QueryBuilder_FromStatement extends Gs_QueryBuilder_Statement
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return Gs_QueryBuilder_FromStatement
+     * @return PO\QueryBuilder\FromStatement
      */
     public function innerJoin($join, $on = null)
     {
@@ -28,7 +27,7 @@ class Gs_QueryBuilder_FromStatement extends Gs_QueryBuilder_Statement
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return Gs_QueryBuilder_FromStatement
+     * @return PO\QueryBuilder\FromStatement
      */
     public function leftJoin($join, $on = null)
     {
@@ -54,7 +53,7 @@ class Gs_QueryBuilder_FromStatement extends Gs_QueryBuilder_Statement
      * @param string $type the type of join (INNER, LEFT)
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return Gs_QueryBuilder_FromStatement
+     * @return PO\QueryBuilder\FromStatement
      */
     private function addJoin($type, $join, $on = null)
     {
