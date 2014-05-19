@@ -1,18 +1,17 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Helper
- */
-require_once 'Gs/QueryBuilder/Helper.php';
+namespace PO\QueryBuilder;
+
+use PO\QueryBuilder\Helper;
 
 /**
  * Helper for building classes
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_Abstract
+abstract class Base
 {
     /**
-     * @var Gs_QueryBuilder_Helper
+     * @var PO\QueryBuilder_Helper
      */
     protected $_helper;
 
@@ -22,7 +21,7 @@ class Gs_QueryBuilder_Abstract
      *
      * @param array $options Hash of options
      *              Allowed options:
-     *                  helper: Gs_QueryBuilder_Helper
+     *                  helper: PO\QueryBuilder_Helper
      */
     public function __construct($options = array())
     {
@@ -30,7 +29,7 @@ class Gs_QueryBuilder_Abstract
         if (isset($options['helper'])) {
             $helper = $options['helper'];
         } else {
-            $helper = new Gs_QueryBuilder_Helper;
+            $helper = new PO\QueryBuilder_Helper;
         }
 
         $this->setHelper($helper);
@@ -48,10 +47,10 @@ class Gs_QueryBuilder_Abstract
     /**
      * Set the helper
      *
-     * @param Gs_QueryBuilder_Helper $helper
-     * @return Gs_QueryBuilder
+     * @param PO\QueryBuilder_Helper $helper
+     * @return PO\QueryBuilder
      */
-    public function setHelper(Gs_QueryBuilder_Helper $helper)
+    public function setHelper(PO\QueryBuilder_Helper $helper)
     {
         $this->_helper = $helper;
         return $this;
@@ -60,7 +59,7 @@ class Gs_QueryBuilder_Abstract
     /**
      * Get the helper
      *
-     * @return Gs_QueryBuilder_Helper
+     * @return PO\QueryBuilder_Helper
      */
     public function getHelper()
     {

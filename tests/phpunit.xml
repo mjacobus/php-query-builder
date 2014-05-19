@@ -1,6 +1,6 @@
 <phpunit bootstrap="bootstrap.php" colors="true">
   <testsuites>
-    <testsuite name="Gs">
+    <testsuite name="PO\QueryBuilder">
       <directory>.</directory>
     </testsuite>
   </testsuites>
@@ -10,8 +10,8 @@
     <whitelist>
       <directory suffix=".php">../lib/</directory>
       <exclude>
-        <file>../Gs/QueryBuilder.php</file>
-        <file>../Gs/QueryBuilder/Statement.php</file>
+        <file>../PO/QueryBuilder.php</file>
+        <file>../PO/QueryBuilder/Statement.php</file>
         <!-- <file>../application/controllers/ErrorController.php</file> -->
         <!-- <directory suffix=".phtml">../application/</directory> -->
       </exclude>
