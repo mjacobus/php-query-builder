@@ -1,8 +1,3 @@
-# PHP Micro Framework
+# PO Query Builder
 
-Includes:
-
-- QueryBuilder
-- View Renderer
-
-
+Query Builder for easing the SQL composing

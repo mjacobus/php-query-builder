@@ -1,6 +1,6 @@
 {
-    "name": "gs/gs",
-    "description": "Micro Framework",
+    "name": "php-objects/QueryBuilder",
+    "description": "Query Builder - Making SQL composing easier",
     "license": "MIT",
     "authors": [
         {
