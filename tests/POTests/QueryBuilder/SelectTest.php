@@ -4,7 +4,8 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\LimitStatement;
+use PO\QueryBuilder\Select;
+use PO\QueryBuilder\Helper;
 
 class SelectTest extends PHPUnit_Framework_TestCase
 {
@@ -88,9 +89,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectHelper()
     {
-        $helper = new PO\QueryBuilder\Helper();
+        $helper = new Helper();
         $options = array('helper' => $helper);
-        $object = new PO\QueryBuilder($options);
+        $object = new QueryBuilder($options);
         $this->assertSame($helper, $object->getHelper());
     }
 

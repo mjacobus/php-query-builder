@@ -4,7 +4,7 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\Statemet;
+use PO\QueryBuilder\Statement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>

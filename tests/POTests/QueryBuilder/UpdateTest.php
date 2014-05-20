@@ -4,7 +4,8 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\UpdateStatement;
+use PO\QueryBuilder\Update;
+use PO\QueryBuilder\Helper;
 
 class UpdateTest extends PHPUnit_Framework_TestCase
 {
@@ -80,9 +81,9 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectHelper()
     {
-        $helper = new PO\QueryBuilder\Helper();
+        $helper = new Helper();
         $options = array('helper' => $helper);
-        $object = new PO\QueryBuilder($options);
+        $object = new QueryBuilder($options);
         $this->assertSame($helper, $object->getHelper());
     }
 

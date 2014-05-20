@@ -1,6 +1,6 @@
 <?php
 
-namespace QueryBuilder;
+namespace PO\QueryBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>

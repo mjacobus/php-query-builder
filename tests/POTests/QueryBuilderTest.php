@@ -4,6 +4,7 @@ namespace POTests;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
+use PO\QueryBuilder\Helper;
 
 class QueryBuilderTest extends PHPUnit_Framework_TestCase
 {
@@ -79,9 +80,9 @@ class QueryBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectHelper()
     {
-        $helper = new PO\QueryBuilder\Helper();
+        $helper = new Helper();
         $options = array('helper' => $helper);
-        $object = new PO\QueryBuilder($options);
+        $object = new QueryBuilder($options);
         $this->assertSame($helper, $object->getHelper());
     }
 
@@ -243,7 +244,7 @@ class QueryBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function canFactorySelect()
     {
-        $query = PO\QueryBuilder::factorySelect(array('a', 'b'));
+        $query = QueryBuilder::factorySelect(array('a', 'b'));
         $this->assertInstanceOf('PO\QueryBuilder\Select', $query);
         $this->assertEquals('SELECT a, b', $query->toSql());
     }
@@ -253,7 +254,7 @@ class QueryBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function canFactoryUpdate()
     {
-        $query = PO\QueryBuilder::update('table')->addSet('foo', 'bar');
+        $query = QueryBuilder::update('table')->addSet('foo', 'bar');
         $this->assertInstanceOf('PO\QueryBuilder\Update', $query);
         $this->assertEquals("UPDATE table SET foo = 'bar'", $query->toSql());
     }
@@ -263,9 +264,8 @@ class QueryBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function canFactoryInsert()
     {
-        $query = PO\QueryBuilder::insert('table')->values(array('foo' => 'bar'));
+        $query = QueryBuilder::insert('table')->values(array('foo' => 'bar'));
         $this->assertInstanceOf('PO\QueryBuilder\Insert', $query);
         $this->assertEquals("INSERT INTO table (foo) VALUES ('bar')", $query->toSql());
     }
-
 }

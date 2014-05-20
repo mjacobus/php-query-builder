@@ -3,6 +3,8 @@
 namespace PO;
 
 use PO\QueryBuilder\Select;
+use PO\QueryBuilder\Update;
+use PO\QueryBuilder\Insert;
 
 /**
  * Helper for building classes

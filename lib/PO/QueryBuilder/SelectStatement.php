@@ -29,5 +29,4 @@ class SelectStatement extends Statement
             return 'SELECT ' . implode(', ', $this->getParams());
         }
     }
-
 }

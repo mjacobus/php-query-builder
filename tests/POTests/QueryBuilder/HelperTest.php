@@ -19,7 +19,7 @@ class HelperTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->o = new PO\QueryBuilder\Helper;
+        $this->o = new Helper;
         $this->o->setDoubleQuoted(true);
     }
 

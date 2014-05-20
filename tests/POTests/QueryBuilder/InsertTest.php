@@ -16,16 +16,16 @@ class InsertTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->o = new PO\QueryBuilder\Insert;
+        $this->o = new Insert;
         $this->o->getHelper()->setDoubleQuoted(true);
     }
 
     /**
      * @test
      */
-    public function itIsAQueryBuilderAbstract()
+    public function itIsAQueryBuilderBase()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Abstract', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Base', $this->o);
     }
 
 
