@@ -25,7 +25,7 @@ class ConditionalBuilderAbstract extends Base
     protected $joins;
 
     /**
-     * @var PO\QueryBuilder\LimitStatement
+     * @var PO\QueryBuilder\LimitClause
      */
     protected $limit;
 
@@ -37,7 +37,7 @@ class ConditionalBuilderAbstract extends Base
     {
         $this->where  = new WhereStatement($this);
         $this->order  = new OrderClause($this);
-        $this->limit  = new LimitStatement($this);
+        $this->limit  = new LimitClause($this);
         $this->joins  = new JoinClause($this);
     }
 

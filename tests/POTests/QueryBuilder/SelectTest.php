@@ -55,9 +55,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectLimitStatement()
+    public function itInitializesWithTheCorrectLimitClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\LimitStatement', $this->o->getLimit());
+        $this->assertInstanceOf('PO\QueryBuilder\LimitClause', $this->o->getLimit());
     }
 
     /**
