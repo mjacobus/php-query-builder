@@ -8,7 +8,35 @@ Query Builder for easing the SQL composing
 ## Usage
 
 ### Select
+
+This is an example of select query. ```limit```, ```where```, ```groupBy```, ```limit``` can be applied to it.
+
 ```php
+$fields = array('u.name AS name', 'r.name AS role');
+
+// Selecting via factory
+$select = PO\QueryBuilder::factorySelect($fields);
+
+// Selecting via the select method
+$select = PO\QueryBuilder::factorySelect()
+    ->select($fields);
+
+// or alternatively
+$select = new PO\QueryBuilder\Select($fields);
+
+// or yet
+$select = new PO\QueryBuilder\Select();
+$select->select($fields);
+
+// From
+$select->from('users u');
+
+// Adding joins
+$select->innerJoin('roles r', 'u.id = r.user_id');
+
+$select->toSql();
+
+// SELECT u.name AS name, r.name AS role FROM users u INNER JOIN roles r ON u.idi = r.user_id
 
 ```
 
@@ -27,6 +55,7 @@ $insert->into('users')->values(array(
 ));
 
 $insert->toSql();
+
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 ```
 
@@ -46,7 +75,6 @@ $insert->toSql(array(
 ));
 
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
-
 ```
 
 ### Update
