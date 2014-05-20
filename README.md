@@ -7,9 +7,15 @@ Query Builder for easing the SQL composing
 
 ## Usage
 
-### Select
+### SELECT
 
-This is an example of select query. ```limit```, ```where```, ```groupBy```, ```limit``` can be applied to it. You can also use [placeholders](#using-placeholders) instead of values.
+This is an example of select query. 
+
+- Applies [limit](#limit)
+- Applies [where](#where)
+- Applies [orderBy](#order-by)
+- Applies [groupBy](#group-by)
+- Applies [placeholders](#using-placeholders)
 
 ```php
 $fields = array('u.name AS name', 'r.name AS role');
@@ -40,7 +46,8 @@ $select->toSql();
 // FROM users u INNER JOIN roles r ON u.idi = r.user_id
 ```
 
-### Insert
+### INSERT
+- Applies [placeholders](#using-placeholders)
 
 ```php
 // Using the factory
@@ -60,14 +67,40 @@ $insert->toSql();
 ```
 
 
-### Update
+### UPDATE
+- Applies [limit](#limit)
+- Applies [where](#where)
+- Applies [orderBy](#order-by)
+- Applies [groupBy](#group-by)
+- Applies [placeholders](#using-placeholders)
+
 ```php
 
 ```
 
-### Delete
+### DELETE
 
 TODO: Implement
+
+### WHERE
+```php
+// TODO: Write examples
+```
+
+### ORDER BY
+```php
+// TODO: Write examples
+```
+
+### LIMIT
+```php
+// TODO: Write examples
+```
+
+### GROUP BY
+```php
+// TODO: Write examples
+```
 
 ### Using placeholders
 
@@ -103,7 +136,7 @@ $insert->toSql(array(
 
 **Keep the code standard [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
-**Keep the code coverage [![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-objects)**
+**Keep the code coverage [![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-query-builder)**
 ### How to run the tests:
 
 ```bash
