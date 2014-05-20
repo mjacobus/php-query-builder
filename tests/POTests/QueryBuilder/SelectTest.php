@@ -71,9 +71,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectGroupStatement()
+    public function itInitializesWithTheCorrectGroupClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\GroupStatement', $this->o->getGroup());
+        $this->assertInstanceOf('PO\QueryBuilder\GroupClause', $this->o->getGroup());
     }
 
     /**

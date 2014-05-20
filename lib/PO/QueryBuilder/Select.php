@@ -19,7 +19,7 @@ class Select extends ConditionalBuilderAbstract
     protected $from;
 
     /**
-     * @var PO\QueryBuilder\GroupStatement
+     * @var PO\QueryBuilder\GroupClause
      */
     protected $group;
 
@@ -32,7 +32,7 @@ class Select extends ConditionalBuilderAbstract
         parent::initialize();
         $this->select = new SelectClause($this);
         $this->from   = new FromClause($this);
-        $this->group  = new GroupStatement($this);
+        $this->group  = new GroupClause($this);
     }
 
     /**
@@ -58,7 +58,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the GROUP statement
      *
-     * @return PO\QueryBuilder\GroupStatement
+     * @return PO\QueryBuilder\GroupClause
      */
     public function getGroup()
     {

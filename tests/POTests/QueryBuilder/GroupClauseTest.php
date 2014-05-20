@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\GroupStatement;
+use PO\QueryBuilder\GroupClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class GroupStatementTest extends PHPUnit_Framework_TestCase
+class GroupClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\GroupStatement
+     * @param PO\QueryBuilder\GroupClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new GroupStatement(new QueryBuilder);
+        $this->o = new GroupClause(new QueryBuilder);
     }
 
     /**
