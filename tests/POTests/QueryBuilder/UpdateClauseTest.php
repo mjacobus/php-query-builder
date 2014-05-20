@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\UpdateStatement;
+use PO\QueryBuilder\UpdateClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class UpdateStatementTest extends PHPUnit_Framework_TestCase
+class UpdateClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\UpdateStatement
+     * @param PO\QueryBuilder\UpdateClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new UpdateStatement(new QueryBuilder);
+        $this->o = new UpdateClause(new QueryBuilder);
     }
 
     /**

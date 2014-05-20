@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class UpdateStatement extends Statement
+class UpdateClause extends Statement
 {
     /**
      * Informs that the query is not empty
@@ -28,7 +28,7 @@ class UpdateStatement extends Statement
 
     /**
      * Sets the table to update
-     * @return PO\QueryBuilder\UpdateStatement
+     * @return PO\QueryBuilder\UpdateClause
      */
     public function table($tableName)
     {

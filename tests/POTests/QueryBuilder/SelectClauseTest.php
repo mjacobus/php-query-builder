@@ -13,7 +13,7 @@ class SelectClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\SelectStatement
+     * @param PO\QueryBuilder\SelectClause
      */
     protected $o;
 

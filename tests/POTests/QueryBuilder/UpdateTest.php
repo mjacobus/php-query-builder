@@ -23,9 +23,9 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectUpdateStatement()
+    public function itInitializesWithTheCorrectUpdateClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\UpdateStatement', $this->o->getUpdate());
+        $this->assertInstanceOf('PO\QueryBuilder\UpdateClause', $this->o->getUpdate());
     }
 
     /**

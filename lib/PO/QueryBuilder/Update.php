@@ -15,14 +15,14 @@ class Update extends ConditionalBuilderAbstract
     protected $set;
 
     /**
-     * @var PO\QueryBuilder\UpdateStatement
+     * @var PO\QueryBuilder\UpdateClause
      */
     protected $update;
 
     public function initialize()
     {
         parent::initialize();
-        $this->update = new UpdateStatement($this);
+        $this->update = new UpdateClause($this);
         $this->set    = new SetStatement($this);
     }
 
@@ -103,7 +103,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the UPDATE statement
-     * @return PO\QueryBuilder\UpdateStatement
+     * @return PO\QueryBuilder\UpdateClause
      */
     public function getUpdate()
     {
