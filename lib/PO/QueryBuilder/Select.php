@@ -9,7 +9,7 @@ namespace PO\QueryBuilder;
 class Select extends ConditionalBuilderAbstract
 {
     /**
-     * @var PO\QueryBuilder\SelectStatement
+     * @var PO\QueryBuilder\SelectClause
      */
     protected $select;
 
@@ -30,7 +30,7 @@ class Select extends ConditionalBuilderAbstract
     public function initialize()
     {
         parent::initialize();
-        $this->select = new SelectStatement($this);
+        $this->select = new SelectClause($this);
         $this->from   = new FromStatement($this);
         $this->group  = new GroupStatement($this);
     }
@@ -38,7 +38,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the SELECT statement
      *
-     * @return PO\QueryBuilder\SelectStatement
+     * @return PO\QueryBuilder\SelectClause
      */
     public function getSelect()
     {

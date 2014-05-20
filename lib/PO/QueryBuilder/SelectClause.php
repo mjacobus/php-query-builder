@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class SelectStatement extends Statement
+class SelectClause extends Statement
 {
     /**
      * Informs that the query is not empty

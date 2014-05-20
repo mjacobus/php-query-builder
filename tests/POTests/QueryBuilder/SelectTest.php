@@ -23,9 +23,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectSelectStatement()
+    public function itInitializesWithTheCorrectSelectClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\SelectStatement', $this->o->getSelect());
+        $this->assertInstanceOf('PO\QueryBuilder\SelectClause', $this->o->getSelect());
     }
 
     /**
@@ -98,7 +98,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itCanSetAddFieldsToTheSelectStatementAsStringAndReturnBuilder()
+    public function itCanSetAddFieldsToTheSelectClauseAsStringAndReturnBuilder()
     {
         $object = $this->o->select('field')->select(array('one', 'two'));
         $this->assertSame($this->o, $object);

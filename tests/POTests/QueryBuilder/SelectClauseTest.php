@@ -4,12 +4,12 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\SelectStatement;
+use PO\QueryBuilder\SelectClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class SelectStatementTest extends PHPUnit_Framework_TestCase
+class SelectClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -19,7 +19,7 @@ class SelectStatementTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->o = new SelectStatement(new QueryBuilder);
+        $this->o = new SelectClause(new QueryBuilder);
     }
 
     /**
