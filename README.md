@@ -75,7 +75,24 @@ $insert->toSql();
 - Applies [placeholders](#using-placeholders)
 
 ```php
+$update = PO\QueryBuilder::update('users');
 
+// or
+$update = new PO\QueryBuilder\Update;
+$update->table('users');
+
+// setting values and conditions
+
+$update->set(array(
+        'enabled' => 1
+    ))
+    ->where('email', ':email');
+
+$update->toSql(array(
+    'email' => 'admin@email.com'
+));
+
+// UPDATE users SET enabled = 1 WHERE email = 'admin@email.com'
 ```
 
 ### DELETE
