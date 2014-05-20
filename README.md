@@ -145,7 +145,7 @@ $query->where(array(
     array('email', 'admin@abc.com', '<>'),
     array('email', '%@google.com', 'LIKE'),
     array('age', 20),
-    array('(code = 1 OR code = 2)),
+    array('(code = 1 OR code = 2)'),
     array('hash', array('value' => 'SOMEFUNCTION()')),
 ));
 
