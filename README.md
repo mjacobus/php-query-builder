@@ -5,6 +5,20 @@ Query Builder for easing the SQL composing
 [![Build Status](https://travis-ci.org/mjacobus/php-query-builder.png?branch=master)](https://travis-ci.org/mjacobus/php-objects)
 [![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-objects)
 
+## Installing
+
+### Installing via Composer
+```javascript
+{
+  // [..]
+  require: "php-objects/query-builder": "dev-master"
+}
+```
+
+### Alternative install
+- Learn composer. You should not be looking for an alternative install. Trust me ;-)
+- Follow [this set of instructions](#installing-via-composer)
+
 ## Usage
 
 ### SELECT
@@ -174,7 +188,7 @@ $query->limit(2, 1);
 
 ### Using placeholders
 
-Placeholders are a good way for building your queries when you don't know what values are goint to be used (because they depend on the result of a query yet to be executed, for instance).
+Placeholders are a good way for building your queries when you don't know what values are going to be used (because they depend on the result of a query yet to be executed, for instance).
 
 ```php
 $insert->into('users')->values(array(
