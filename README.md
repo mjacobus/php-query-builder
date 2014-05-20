@@ -7,6 +7,13 @@ Query Builder for easing the SQL composing
 
 ## Usage
 
+### Select
+```php
+
+```
+
+### Insert
+
 ```php
 // Using the factory
 $insert = PO\QueryBuilder::insert();
@@ -15,16 +22,30 @@ $insert = PO\QueryBuilder::insert();
 $insert = new PO\QueryBuilder\Insert($values);
 
 $insert->into('users')->values(array(
-    'name' => 'Jon Doe',
+    'name'  => 'Jon Doe',
     'email' => 'jon@doe.com'
 ));
 
 $insert->toSql();
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 ```
-### Insert
+
+### Using place holders
+
+Placeholders are a good way for building your queries when you don't know what values are goint to be used (because they depend on the result of a query yet to be executed, for instance).
 
 ```php
+$insert->into('users')->values(array(
+    'name'  => ':name',
+    'email' => ':email'
+));
+
+$insert->toSql(array(
+    'name'  => 'Jon Doe',
+    'email' => 'jon@doe.com'
+));
+
+// INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 
 ```
 
