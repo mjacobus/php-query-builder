@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\WhereStatement;
+use PO\QueryBuilder\WhereClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class WhereStatementTest extends PHPUnit_Framework_TestCase
+class WhereClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\WhereStatement
+     * @param PO\QueryBuilder\WhereClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new WhereStatement(new QueryBuilder);
+        $this->o = new WhereClause(new QueryBuilder);
         $this->o->getBuilder()->getHelper()->setDoubleQuoted(true);
     }
 

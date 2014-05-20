@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class WhereStatement extends Statement
+class WhereClause extends Statement
 {
 
     /**
@@ -19,7 +19,7 @@ class WhereStatement extends Statement
      * @param string $fieldOrCondition
      * @param string $value
      * @param string $operator
-     * @return PO\QueryBuilder\WhereStatement
+     * @return PO\QueryBuilder\WhereClause
      */
     public function addCondition($fieldOrCondition, $value = null, $operator = '=')
     {
@@ -46,7 +46,7 @@ class WhereStatement extends Statement
      *   ));
      *
      * @param array $conditions
-     * @return PO\QueryBuilder\WhereStatement
+     * @return PO\QueryBuilder\WhereClause
      */
     public function addConditions(array $conditions = array())
     {

@@ -10,7 +10,7 @@ class ConditionalBuilderAbstract extends Base
 {
 
     /**
-     * @var PO\QueryBuilder\WhereStatement
+     * @var PO\QueryBuilder\WhereClause
      */
     protected $where;
 
@@ -35,7 +35,7 @@ class ConditionalBuilderAbstract extends Base
      */
     public function initialize()
     {
-        $this->where  = new WhereStatement($this);
+        $this->where  = new WhereClause($this);
         $this->order  = new OrderClause($this);
         $this->limit  = new LimitClause($this);
         $this->joins  = new JoinClause($this);
@@ -54,7 +54,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the WHERE statement
      *
-     * @return PO\QueryBuilder\WhereStatement
+     * @return PO\QueryBuilder\WhereClause
      */
     public function getWhere()
     {

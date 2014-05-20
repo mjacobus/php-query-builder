@@ -39,9 +39,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectWhereStatement()
+    public function itInitializesWithTheCorrectWhereClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\WhereStatement', $this->o->getWhere());
+        $this->assertInstanceOf('PO\QueryBuilder\WhereClause', $this->o->getWhere());
     }
 
     /**
