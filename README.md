@@ -83,23 +83,74 @@ $insert->toSql();
 TODO: Implement
 
 ### WHERE
+
+Every time a ```where()``` method is called, the condition is added to the query.
+
+
 ```php
-// TODO: Write examples
+
+// method signature
+$query->where($field, $value, $operator);
+
+// or
+$query->where($condition);
+
+// or
+$query->where(array(
+    array($field, $value, $operator),
+    array($condition),
+));
+
+
+$query->where('email', 'admin@abc.com');
+// WHERE email = 'admin@abc.com'
+
+$query->where('email', 'admin@abc.com', '<>');
+// WHERE email <> "admin@abc.com"
+
+$query->where('email', '%@google.com', 'LIKE');
+// WHERE email <> "LIKE@abc.com"
+
+$query->where('age', 20);
+// WHERE age = 20
+
+$query->where('code', 001);
+// WHERE code = 001
+
+$query->where('code', array('value' => '001'));
+// WHERE code = '001'
+
+$query->where('(code = 1 OR code = 2)'));
+// WHERE (code = 1 OR code = 2)
+
+// multiple conditioins, one method call
+$query->where(array(
+    array('email', 'admin@abc.com', '<>'),
+    array('email', '%@google.com', 'LIKE'),
+    array('age', 20),
+    array('(code = 1 OR code = 2)),
+    array('hash', array('value' => 'SOMEFUNCTION()')),
+));
 ```
 
 ### ORDER BY
 ```php
-// TODO: Write examples
-```
-
-### LIMIT
-```php
-// TODO: Write examples
+$query->orderBy('name DESC');
+// or
+$query->orderBy(array('name DESC', 'age ASC'));
 ```
 
 ### GROUP BY
 ```php
-// TODO: Write examples
+$query->groupBy('a, b, c');
+// or
+$query->groupBy(array('a', 'b', 'b'));
+```
+
+### LIMIT
+```php
+$query->limit(2);
+$query->limit(2, 1);
 ```
 
 ### Using placeholders
@@ -120,9 +171,9 @@ $insert->toSql(array(
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 ```
 
-## Issues/New Features
+## Issues/Features proposals
 
-[Here](issues) is the issue tracker.
+[Here](https://github.com/mjacobus/php-query-builder/issues) is the issue tracker.
 
 ## Contributing
 
