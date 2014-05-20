@@ -14,7 +14,7 @@ class Select extends ConditionalBuilderAbstract
     protected $select;
 
     /**
-     * @var PO\QueryBuilder\FromStatement
+     * @var PO\QueryBuilder\FromClause
      */
     protected $from;
 
@@ -31,7 +31,7 @@ class Select extends ConditionalBuilderAbstract
     {
         parent::initialize();
         $this->select = new SelectClause($this);
-        $this->from   = new FromStatement($this);
+        $this->from   = new FromClause($this);
         $this->group  = new GroupStatement($this);
     }
 
@@ -48,7 +48,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the FROM statement
      *
-     * @return PO\QueryBuilder\FromStatement
+     * @return PO\QueryBuilder\FromClause
      */
     public function getFrom()
     {

@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class FromStatement extends Statement
+class FromClause extends Statement
 {
 
     /**
@@ -13,7 +13,7 @@ class FromStatement extends Statement
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromStatement
+     * @return PO\QueryBuilder\FromClause
      */
     public function innerJoin($join, $on = null)
     {
@@ -25,7 +25,7 @@ class FromStatement extends Statement
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromStatement
+     * @return PO\QueryBuilder\FromClause
      */
     public function leftJoin($join, $on = null)
     {
@@ -51,7 +51,7 @@ class FromStatement extends Statement
      * @param string $type the type of join (INNER, LEFT)
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromStatement
+     * @return PO\QueryBuilder\FromClause
      */
     private function addJoin($type, $join, $on = null)
     {

@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\FromStatement;
+use PO\QueryBuilder\FromClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class FromStatementTest extends PHPUnit_Framework_TestCase
+class FromClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\FromStatement
+     * @param PO\QueryBuilder\FromClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new FromStatement(new QueryBuilder);
+        $this->o = new FromClause(new QueryBuilder);
     }
 
     /**

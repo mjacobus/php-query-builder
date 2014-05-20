@@ -31,9 +31,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectFromStatement()
+    public function itInitializesWithTheCorrectFromClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\FromStatement', $this->o->getFrom());
+        $this->assertInstanceOf('PO\QueryBuilder\FromClause', $this->o->getFrom());
     }
 
     /**
