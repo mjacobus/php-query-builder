@@ -8,10 +8,16 @@ Query Builder for easing the SQL composing
 ## Installing
 
 ### Installing via Composer
+Append the lib to your requirements key in your composer.json.
+
 ```javascript
 {
-  // [..]
-  require: "php-objects/query-builder": "dev-master"
+    // composer.json
+    // [..]
+    require: {
+        // append this line to your requirements
+        "php-objects/query-builder": "dev-master"
+    }
 }
 ```
 
