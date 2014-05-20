@@ -19,5 +19,4 @@ class LimitStatement extends Statement
             return 'LIMIT ' . implode(', ', $this->getParams());
         }
     }
-
 }

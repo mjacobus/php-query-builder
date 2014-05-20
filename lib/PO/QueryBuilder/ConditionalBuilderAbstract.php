@@ -178,5 +178,4 @@ class ConditionalBuilderAbstract extends Base
 
         return $this;
     }
-
 }

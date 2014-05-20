@@ -83,5 +83,4 @@ class Insert extends Base
 
         return implode(' ', $sql);
     }
-
 }

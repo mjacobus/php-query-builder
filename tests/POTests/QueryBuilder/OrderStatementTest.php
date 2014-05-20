@@ -49,5 +49,4 @@ class OrderStatementTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('', $this->o->toSql());
     }
-
 }

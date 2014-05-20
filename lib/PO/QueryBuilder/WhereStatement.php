@@ -53,7 +53,7 @@ class WhereStatement extends Statement
         foreach ($conditions as $key => $condition) {
             if (is_array($condition)) {
                 call_user_func_array(array($this, 'addCondition'), $condition);
-            } else if (!$this->getBuilder()->getHelper()->isNumber($key)) {
+            } elseif (!$this->getBuilder()->getHelper()->isNumber($key)) {
                 call_user_func_array(array($this, 'addCondition'), array($key, $condition));
             } else {
                 $this->addCondition($condition);

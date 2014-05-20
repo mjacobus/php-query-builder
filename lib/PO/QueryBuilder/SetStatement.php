@@ -64,7 +64,7 @@ class SetStatement extends Statement
         $sql = array('SET');
         $set = array();
 
-        foreach($params as $column => $value) {
+        foreach ($params as $column => $value) {
             $set[] = implode(' = ', array(
                 $column, $this->getBuilder()->getHelper()->toDbValue($value)
             ));
@@ -74,5 +74,4 @@ class SetStatement extends Statement
 
         return implode(' ', $sql);
     }
-
 }

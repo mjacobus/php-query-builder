@@ -64,5 +64,4 @@ class JoinStatement extends Statement
         $this->addParam($join);
         return $this;
     }
-
 }

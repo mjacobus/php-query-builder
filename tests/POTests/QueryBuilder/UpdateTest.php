@@ -207,5 +207,4 @@ class UpdateTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expectedParams, $this->o->getOrder()->getParams());
     }
-
 }

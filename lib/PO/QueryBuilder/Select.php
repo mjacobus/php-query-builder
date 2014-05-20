@@ -121,5 +121,4 @@ class Select extends ConditionalBuilderAbstract
         $this->getGroup()->addParams((array) $params);
         return $this;
     }
-
 }

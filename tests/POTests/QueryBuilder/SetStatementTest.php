@@ -83,5 +83,4 @@ class SetStatementTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($params, $this->o->getParams());
     }
-
 }

@@ -19,5 +19,4 @@ class OrderStatement extends Statement
             return 'ORDER BY ' . implode(', ', $this->getParams());
         }
     }
-
 }

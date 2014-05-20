@@ -39,5 +39,4 @@ class UpdateStatementTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('UPDATE table', $this->o->toString());
     }
-
 }

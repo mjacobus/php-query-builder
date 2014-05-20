@@ -35,5 +35,4 @@ class UpdateStatement extends Statement
         $this->setParams(array($tableName));
         return $this;
     }
-
 }
