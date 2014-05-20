@@ -20,5 +20,4 @@ class GroupStatement extends Statement
             return 'GROUP BY ' . implode(', ', $this->getParams());
         }
     }
-
 }
