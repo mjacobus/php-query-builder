@@ -63,7 +63,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectJoinsStatement()
+    public function itInitializesWithTheCorrectJoinsClause()
     {
         $this->assertInstanceOf('PO\QueryBuilder\JoinClause', $this->o->getJoins());
     }
