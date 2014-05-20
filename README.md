@@ -8,17 +8,16 @@ Query Builder for easing the SQL composing
 ## Usage
 
 ```php
+// Using the factory
 $insert = PO\QueryBuilder::insert();
 
-// Alternatively
-
-$insert = new new PO\QueryBuilder\Insert($values);
+// Or alternatively
+$insert = new PO\QueryBuilder\Insert($values);
 
 $insert->into('users')->values(array(
-        'name' => 'Jon Doe',
-        'email' => 'jon@doe.com'
-    ));
-
+    'name' => 'Jon Doe',
+    'email' => 'jon@doe.com'
+));
 
 $insert->toSql();
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
