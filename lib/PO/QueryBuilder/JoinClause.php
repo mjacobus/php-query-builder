@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class JoinClause extends Statement
+class JoinClause extends Clause
 {
 
     /**

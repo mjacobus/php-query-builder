@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Statement
+class Clause
 {
     /**
      * @param PO\QueryBuilder $builder
@@ -39,7 +39,7 @@ class Statement
      * Add one param to the existing collection of params
      *
      * @param mixed $param
-     * @return PO\QueryBuilder\Statement
+     * @return PO\QueryBuilder\Clause
      */
     public function addParam($param)
     {
@@ -51,7 +51,7 @@ class Statement
      * Set the params. Remove old ones.
      *
      * @param array $params
-     * @return PO\QueryBuilder\Statement
+     * @return PO\QueryBuilder\Clause
      */
     public function setParams(array $params)
     {
@@ -73,7 +73,7 @@ class Statement
      * Add a collection of params
      *
      * @param array $params
-     * @return PO\QueryBuilder\Statement
+     * @return PO\QueryBuilder\Clause
      */
     public function addParams(array $params)
     {
@@ -85,7 +85,7 @@ class Statement
     }
 
     /**
-     * @return PO\QueryBuilder\Statement
+     * @return PO\QueryBuilder\Clause
      */
     public function reset()
     {

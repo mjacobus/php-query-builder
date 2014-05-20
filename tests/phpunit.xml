@@ -11,7 +11,7 @@
       <directory suffix=".php">../lib/</directory>
       <exclude>
         <file>../PO/QueryBuilder.php</file>
-        <file>../PO/QueryBuilder/Statement.php</file>
+        <file>../PO/QueryBuilder/Clause.php</file>
         <!-- <file>../application/controllers/ErrorController.php</file> -->
         <!-- <directory suffix=".phtml">../application/</directory> -->
       </exclude>

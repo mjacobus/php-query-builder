@@ -27,7 +27,7 @@ class UpdateClauseTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Clause', $this->o);
     }
 
     /**

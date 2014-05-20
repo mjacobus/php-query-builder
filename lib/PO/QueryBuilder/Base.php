@@ -89,9 +89,9 @@ abstract class Base
     {
         $sql = array();
 
-        foreach ($this->getStatements() as $statement) {
-            if (!$statement->isEmpty()) {
-                $sql[] = $statement;
+        foreach ($this->getClauses() as $clause) {
+            if (!$clause->isEmpty()) {
+                $sql[] = $clause;
             }
         }
 

@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class LimitClause extends Statement
+class LimitClause extends Clause
 {
     /**
      * Return the resulting query

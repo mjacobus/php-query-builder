@@ -4,21 +4,21 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\Statement;
+use PO\QueryBuilder\Clause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class StatementTest extends PHPUnit_Framework_TestCase
+class ClauseTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @param PO\QueryBuilder\Statement $query
+     * @param PO\QueryBuilder\Clause $query
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Statement(new QueryBuilder);
+        $this->o = new Clause(new QueryBuilder);
     }
 
     /**

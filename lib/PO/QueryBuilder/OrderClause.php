@@ -5,7 +5,7 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class OrderClause extends Statement
+class OrderClause extends Clause
 {
     /**
      * Return the resulting query

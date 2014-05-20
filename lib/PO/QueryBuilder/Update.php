@@ -78,9 +78,9 @@ class Update extends ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Statement]
+     * @return array[PO\QueryBuilder\Clause]
      */
-    public function getStatements()
+    public function getClauses()
     {
         return array(
             $this->getUpdate(),
