@@ -101,6 +101,7 @@ $query->where(array(
     array($condition),
 ));
 
+// Below some valid examples:
 
 $query->where('email', 'admin@abc.com');
 // WHERE email = 'admin@abc.com'
@@ -131,6 +132,8 @@ $query->where(array(
     array('(code = 1 OR code = 2)),
     array('hash', array('value' => 'SOMEFUNCTION()')),
 ));
+
+// WHERE condition 1 AND condition 2..
 ```
 
 ### ORDER BY
