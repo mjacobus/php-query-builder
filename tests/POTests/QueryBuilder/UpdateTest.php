@@ -31,9 +31,9 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectSetStatement()
+    public function itInitializesWithTheCorrectSetClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\SetStatement', $this->o->getSet());
+        $this->assertInstanceOf('PO\QueryBuilder\SetClause', $this->o->getSet());
     }
 
     /**

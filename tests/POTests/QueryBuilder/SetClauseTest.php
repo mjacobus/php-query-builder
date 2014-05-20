@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\SetStatement;
+use PO\QueryBuilder\SetClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class SetStatementTest extends PHPUnit_Framework_TestCase
+class SetClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\SetStatement
+     * @param PO\QueryBuilder\SetClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new SetStatement(new QueryBuilder);
+        $this->o = new SetClause(new QueryBuilder);
         $this->o->getBuilder()->getHelper()->setDoubleQuoted(true);
     }
 

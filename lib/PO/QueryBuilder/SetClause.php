@@ -5,14 +5,14 @@ namespace PO\QueryBuilder;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class SetStatement extends Statement
+class SetClause extends Statement
 {
 
     /**
      * Set (override) the values to be set
      *
      * @param array $values
-     * @return PO\QueryBuilder\SetStatement
+     * @return PO\QueryBuilder\SetClause
      */
     public function set(array $params = array())
     {
@@ -24,7 +24,7 @@ class SetStatement extends Statement
      * Add the values to be set
      *
      * @param array $values
-     * @return PO\QueryBuilder\SetStatement
+     * @return PO\QueryBuilder\SetClause
      */
     public function addSets(array $values = array())
     {
@@ -40,7 +40,7 @@ class SetStatement extends Statement
      *
      * @param string $column
      * @param string $value
-     * @return PO\QueryBuilder\SetStatement
+     * @return PO\QueryBuilder\SetClause
      */
     public function addSet($column, $value)
     {

@@ -10,7 +10,7 @@ class Update extends ConditionalBuilderAbstract
 {
 
     /**
-     * @var PO\QueryBuilder\SetStatement
+     * @var PO\QueryBuilder\SetClause
      */
     protected $set;
 
@@ -23,7 +23,7 @@ class Update extends ConditionalBuilderAbstract
     {
         parent::initialize();
         $this->update = new UpdateClause($this);
-        $this->set    = new SetStatement($this);
+        $this->set    = new SetClause($this);
     }
 
     /**
@@ -94,7 +94,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the SET statement
-     * @return PO\QueryBuilder\SetStatement
+     * @return PO\QueryBuilder\SetClause
      */
     public function getSet()
     {
