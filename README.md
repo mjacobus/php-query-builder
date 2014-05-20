@@ -85,8 +85,7 @@ $update->table('users');
 
 $update->set(array(
         'enabled' => 1
-    ))
-    ->where('email', ':email');
+    ))->where('email', ':email');
 
 $update->toSql(array(
     'email' => 'admin@email.com'
