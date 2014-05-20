@@ -47,9 +47,9 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itInitializesWithTheCorrectOrderStatement()
+    public function itInitializesWithTheCorrectOrderClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\OrderStatement', $this->o->getOrder());
+        $this->assertInstanceOf('PO\QueryBuilder\OrderClause', $this->o->getOrder());
     }
 
     /**

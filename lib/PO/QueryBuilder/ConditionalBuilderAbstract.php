@@ -15,7 +15,7 @@ class ConditionalBuilderAbstract extends Base
     protected $where;
 
     /**
-     * @var PO\QueryBuilder\OrderStatement
+     * @var PO\QueryBuilder\OrderClause
      */
     protected $order;
 
@@ -36,7 +36,7 @@ class ConditionalBuilderAbstract extends Base
     public function initialize()
     {
         $this->where  = new WhereStatement($this);
-        $this->order  = new OrderStatement($this);
+        $this->order  = new OrderClause($this);
         $this->limit  = new LimitStatement($this);
         $this->joins  = new JoinStatement($this);
     }
@@ -64,7 +64,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the ORDER statement
      *
-     * @return PO\QueryBuilder\OrderStatement
+     * @return PO\QueryBuilder\OrderClause
      */
     public function getOrder()
     {
@@ -74,7 +74,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the LIMIT statement
      *
-     * @return PO\QueryBuilder\OrderStatement
+     * @return PO\QueryBuilder\OrderClause
      */
     public function getLimit()
     {
