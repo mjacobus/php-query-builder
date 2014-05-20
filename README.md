@@ -9,7 +9,7 @@ Query Builder for easing the SQL composing
 
 ### Select
 
-This is an example of select query. ```limit```, ```where```, ```groupBy```, ```limit``` can be applied to it.
+This is an example of select query. ```limit```, ```where```, ```groupBy```, ```limit``` can be applied to it. You can also use [placeholders](#using-placeholders) instead of values.
 
 ```php
 $fields = array('u.name AS name', 'r.name AS role');
@@ -36,8 +36,8 @@ $select->innerJoin('roles r', 'u.id = r.user_id');
 
 $select->toSql();
 
-// SELECT u.name AS name, r.name AS role FROM users u INNER JOIN roles r ON u.idi = r.user_id
-
+// SELECT u.name AS name, r.name AS role 
+// FROM users u INNER JOIN roles r ON u.idi = r.user_id
 ```
 
 ### Insert
@@ -59,7 +59,17 @@ $insert->toSql();
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 ```
 
-### Using place holders
+
+### Update
+```php
+
+```
+
+### Delete
+
+TODO: Implement
+
+### Using placeholders
 
 Placeholders are a good way for building your queries when you don't know what values are goint to be used (because they depend on the result of a query yet to be executed, for instance).
 
@@ -76,15 +86,6 @@ $insert->toSql(array(
 
 // INSERT INTO users (name, email) VALUES ('Jon Doe', 'jon@doe.com');
 ```
-
-### Update
-```php
-
-```
-
-### Delete
-
-TODO: Implement
 
 ## Issues/New Features
 
