@@ -14,17 +14,6 @@ class QueryBuilder extends Select
 {
 
     /**
-     * @deprecated
-     *
-     *     Please use PO\QueryBuilder::factorySelect($fields) instead.
-     *     Alternatively you can use new PO\QueryBuilder\Select($params)
-     */
-    public function __construct(array $params = array())
-    {
-        parent::__construct($params);
-    }
-
-    /**
      * Factory Select Builder
      *
      * @params array $params The select filds for the select builder
