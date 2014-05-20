@@ -2,8 +2,8 @@
 
 Query Builder for easing the SQL composing
 
-[![Build Status](https://travis-ci.org/mjacobus/php-query-builder.png?branch=master)](https://travis-ci.org/mjacobus/php-objects)
-[![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-objects)
+[![Build Status](https://travis-ci.org/mjacobus/php-query-builder.png?branch=master)](https://travis-ci.org/mjacobus/php-query-builder)
+[![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-query-builder)
 
 ## Installing
 
@@ -240,3 +240,11 @@ phpcs --standard=PSR2 tests
 
 ./bin/travis/run_phpcs.sh
 ```
+
+## Lincense
+[MIT](MIT-LICENSE)
+
+## Authors
+
+- [Marcelo Jacobus](https://github.com/mjacobus)
+
