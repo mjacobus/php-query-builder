@@ -1,19 +1,25 @@
 <?php
 
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\Helper;
+
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_HelperTest extends PHPUnit_Framework_TestCase
+class HelperTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_Helper
+     * @param PO\QueryBuilder\Helper
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_Helper;
+        $this->o = new PO\QueryBuilder\Helper;
         $this->o->setDoubleQuoted(true);
     }
 

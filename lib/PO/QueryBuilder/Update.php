@@ -1,49 +1,36 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_ConditionalBuilderAbstract
- */
-require_once 'Gs/QueryBuilder/ConditionalBuilderAbstract.php';
-
-/**
- * @see Gs_QueryBuilder_UpdateStatement
- */
-require_once 'Gs/QueryBuilder/UpdateStatement.php';
-
-/**
- * @see Gs_QueryBuilder_SetStatement
- */
-require_once 'Gs/QueryBuilder/SetStatement.php';
+namespace PO\QueryBuilder;
 
 /**
  * Helper for building UPDATE SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
+class Update extends ConditionalBuilderAbstract
 {
 
     /**
-     * @var Gs_QueryBuilder_SetStatement
+     * @var PO\QueryBuilder\SetStatement
      */
-    protected $_set;
+    protected $set;
 
     /**
-     * @var Gs_QueryBuilder_UpdateStatement
+     * @var PO\QueryBuilder\UpdateStatement
      */
-    protected $_update;
+    protected $update;
 
     public function initialize()
     {
         parent::initialize();
-        $this->_update = new Gs_QueryBuilder_UpdateStatement($this);
-        $this->_set    = new Gs_QueryBuilder_SetStatement($this);
+        $this->update = new UpdateStatement($this);
+        $this->set    = new SetStatement($this);
     }
 
     /**
      * Sets (overrides) the values to be set
      *
      * @param array $values the values to set
-     * @return Gs_QueryBuilder_Update
+     * @return PO\QueryBuilder\Update
      */
     public function set(array $values = array())
     {
@@ -55,7 +42,7 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
      * Adds values to be set
      *
      * @param array $values the values to set
-     * @return Gs_QueryBuilder_Update
+     * @return PO\QueryBuilder\Update
      */
     public function addSets(array $values = array())
     {
@@ -68,7 +55,7 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
      *
      * @param string $column
      * @param string $value
-     * @return Gs_QueryBuilder_Update
+     * @return PO\QueryBuilder\Update
      */
     public function addSet($column, $value)
     {
@@ -80,7 +67,7 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
      * Set the table to update
      *
      * @param string $table
-     * @return Gs_QueryBuilder_Update
+     * @return PO\QueryBuilder\Update
      */
     public function table($table)
     {
@@ -91,7 +78,7 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[Gs_QueryBuilder_Statement]
+     * @return array[PO\QueryBuilder\Statement]
      */
     public function getStatements()
     {
@@ -107,19 +94,19 @@ class Gs_QueryBuilder_Update extends Gs_QueryBuilder_ConditionalBuilderAbstract
 
     /**
      * Get the SET statement
-     * @return Gs_QueryBuilder_SetStatement
+     * @return PO\QueryBuilder\SetStatement
      */
     public function getSet()
     {
-        return $this->_set;
+        return $this->set;
     }
 
     /**
      * Get the UPDATE statement
-     * @return Gs_QueryBuilder_UpdateStatement
+     * @return PO\QueryBuilder\UpdateStatement
      */
     public function getUpdate()
     {
-        return $this->_update;
+        return $this->update;
     }
 }

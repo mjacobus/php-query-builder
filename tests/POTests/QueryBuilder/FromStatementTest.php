@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_FromStatement
- */
-require_once 'Gs/QueryBuilder/FromStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\FromStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_FromStatementTest extends PHPUnit_Framework_TestCase
+class FromStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_FromStatement
+     * @param PO\QueryBuilder\FromStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_FromStatement(new Gs_QueryBuilder);
+        $this->o = new FromStatement(new QueryBuilder);
     }
 
     /**
@@ -26,7 +27,7 @@ class Gs_QueryBuilder_FromStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**

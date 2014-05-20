@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_JoinStatement
- */
-require_once 'Gs/QueryBuilder/JoinStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\JoinStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_JoinStatementTest extends PHPUnit_Framework_TestCase
+class JoinStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_JoinStatement
+     * @param PO\QueryBuilder\JoinStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_JoinStatement(new Gs_QueryBuilder);
+        $this->o = new JoinStatement(new QueryBuilder);
     }
 
     /**
@@ -26,7 +27,7 @@ class Gs_QueryBuilder_JoinStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**
@@ -91,5 +92,4 @@ class Gs_QueryBuilder_JoinStatementTest extends PHPUnit_Framework_TestCase
             $this->o->toSql()
         );
     }
-
 }

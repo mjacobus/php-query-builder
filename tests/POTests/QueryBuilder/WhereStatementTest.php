@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_WhereStatement
- */
-require_once 'Gs/QueryBuilder/WhereStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\LimitStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_WhereStatementTest extends PHPUnit_Framework_TestCase
+class WhereStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_WhereStatement
+     * @param PO\QueryBuilder\WhereStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_WhereStatement(new Gs_QueryBuilder);
+        $this->o = new WhereStatement(new QueryBuilder);
         $this->o->getBuilder()->getHelper()->setDoubleQuoted(true);
     }
 
@@ -27,7 +28,7 @@ class Gs_QueryBuilder_WhereStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**
@@ -94,6 +95,4 @@ class Gs_QueryBuilder_WhereStatementTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expectedParams, $this->o->getParams());
     }
-
-
 }

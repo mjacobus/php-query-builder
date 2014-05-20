@@ -1,14 +1,11 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Statement
- */
-require_once 'Gs/QueryBuilder/Statement.php';
+namespace PO\QueryBuider;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
+class WhereStatement extends Statement
 {
 
     /**
@@ -22,7 +19,7 @@ class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
      * @param string $fieldOrCondition
      * @param string $value
      * @param string $operator
-     * @return Gs_QueryBuilder_WhereStatement
+     * @return PO\QueryBuilder\WhereStatement
      */
     public function addCondition($fieldOrCondition, $value = null, $operator = '=')
     {
@@ -49,14 +46,14 @@ class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
      *   ));
      *
      * @param array $conditions
-     * @return Gs_QueryBuilder_WhereStatement
+     * @return PO\QueryBuilder\WhereStatement
      */
     public function addConditions(array $conditions = array())
     {
         foreach ($conditions as $key => $condition) {
             if (is_array($condition)) {
                 call_user_func_array(array($this, 'addCondition'), $condition);
-            } else if (!$this->getBuilder()->getHelper()->isNumber($key)){
+            } else if (!$this->getBuilder()->getHelper()->isNumber($key)) {
                 call_user_func_array(array($this, 'addCondition'), array($key, $condition));
             } else {
                 $this->addCondition($condition);
@@ -79,6 +76,4 @@ class Gs_QueryBuilder_WhereStatement extends Gs_QueryBuilder_Statement
             return 'WHERE ' . implode(' AND ', $this->getParams());
         }
     }
-
-
 }

@@ -1,18 +1,22 @@
 <?php
 
-require_once 'Gs/QueryBuilder/Insert.php';
+namespace POTests\QueryBuilder;
 
-class Gs_QueryBuilder_InsertTest extends PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\Insert;
+
+class InsertTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Gs_QueryBuilder_Insert
+     * @var PO\QueryBuilder\Insert
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_Insert;
+        $this->o = new PO\QueryBuilder\Insert;
         $this->o->getHelper()->setDoubleQuoted(true);
     }
 
@@ -21,7 +25,7 @@ class Gs_QueryBuilder_InsertTest extends PHPUnit_Framework_TestCase
      */
     public function itIsAQueryBuilderAbstract()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Abstract', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Abstract', $this->o);
     }
 
 

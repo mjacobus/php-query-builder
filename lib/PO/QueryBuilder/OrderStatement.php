@@ -1,14 +1,11 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Statement
- */
-require_once 'Gs/QueryBuilder/Statement.php';
+namespace PO\QueryBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_OrderStatement extends Gs_QueryBuilder_Statement
+class OrderStatement extends Statement
 {
     /**
      * Return the resulting query

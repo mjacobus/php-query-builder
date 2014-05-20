@@ -2,8 +2,6 @@
 
 namespace PO\QueryBuilder;
 
-use PO\QueryBuilder\Helper;
-
 /**
  * Helper for building classes
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -29,7 +27,7 @@ abstract class Base
         if (isset($options['helper'])) {
             $helper = $options['helper'];
         } else {
-            $helper = new PO\QueryBuilder\Helper;
+            $helper = new Helper;
         }
 
         $this->setHelper($helper);

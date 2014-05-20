@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_OrderStatement
- */
-require_once 'Gs/QueryBuilder/OrderStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\LimitStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_OrderStatementTest extends PHPUnit_Framework_TestCase
+class OrderStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_OrderStatement
+     * @param PO\QueryBuilder\OrderStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_OrderStatement(new Gs_QueryBuilder);
+        $this->o = new OrderStatement(new QueryBuilder);
     }
 
     /**
@@ -26,7 +27,7 @@ class Gs_QueryBuilder_OrderStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**

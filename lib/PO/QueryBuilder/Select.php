@@ -1,45 +1,27 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_SelectStatement
- */
-require_once 'Gs/QueryBuilder/SelectStatement.php';
-
-/**
- * @see Gs_QueryBuilder_FromStatement
- */
-require_once 'Gs/QueryBuilder/FromStatement.php';
-
-/**
- * @see Gs_QueryBuilder_GroupStatement
- */
-require_once 'Gs/QueryBuilder/GroupStatement.php';
-
-/**
- * @see Gs_QueryBuilder_ConditionalBuilderAbstract
- */
-require_once 'Gs/QueryBuilder/ConditionalBuilderAbstract.php';
+namespace PO\QueryBuilder;
 
 /**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_Select extends Gs_QueryBuilder_ConditionalBuilderAbstract
+class Select extends ConditionalBuilderAbstract
 {
     /**
-     * @var Gs_QueryBuilder_SelectStatement
+     * @var PO\QueryBuilder\SelectStatement
      */
-    protected $_select;
+    protected $select;
 
     /**
-     * @var Gs_QueryBuilder_FromStatement
+     * @var PO\QueryBuilder\FromStatement
      */
-    protected $_from;
+    protected $from;
 
     /**
-     * @var Gs_QueryBuilder_GroupStatement
+     * @var PO\QueryBuilder\GroupStatement
      */
-    protected $_group;
+    protected $group;
 
     /**
      * Constructor
@@ -48,46 +30,46 @@ class Gs_QueryBuilder_Select extends Gs_QueryBuilder_ConditionalBuilderAbstract
     public function initialize()
     {
         parent::initialize();
-        $this->_select = new Gs_QueryBuilder_SelectStatement($this);
-        $this->_from   = new Gs_QueryBuilder_FromStatement($this);
-        $this->_group  = new Gs_QueryBuilder_GroupStatement($this);
+        $this->select = new SelectStatement($this);
+        $this->from   = new FromStatement($this);
+        $this->group  = new GroupStatement($this);
     }
 
     /**
      * Get the SELECT statement
      *
-     * @return Gs_QueryBuilder_SelectStatement
+     * @return PO\QueryBuilder\SelectStatement
      */
     public function getSelect()
     {
-        return $this->_select;
+        return $this->select;
     }
 
     /**
      * Get the FROM statement
      *
-     * @return Gs_QueryBuilder_FromStatement
+     * @return PO\QueryBuilder\FromStatement
      */
     public function getFrom()
     {
-        return $this->_from;
+        return $this->from;
     }
 
     /**
      * Get the GROUP statement
      *
-     * @return Gs_QueryBuilder_GroupStatement
+     * @return PO\QueryBuilder\GroupStatement
      */
     public function getGroup()
     {
-        return $this->_group;
+        return $this->group;
     }
 
     /**
      * Add params to the query statement
      *
      * @param string|array $param
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function select($param)
     {
@@ -98,7 +80,7 @@ class Gs_QueryBuilder_Select extends Gs_QueryBuilder_ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[Gs_QueryBuilder_Statement]
+     * @return array[PO\QueryBuilder\Statement]
      */
     public function getStatements()
     {
@@ -117,7 +99,7 @@ class Gs_QueryBuilder_Select extends Gs_QueryBuilder_ConditionalBuilderAbstract
      * Set the from statement
      *
      * @param array|string
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function from($params)
     {
@@ -132,7 +114,7 @@ class Gs_QueryBuilder_Select extends Gs_QueryBuilder_ConditionalBuilderAbstract
      * $this->groupBy('foo')->groupBy('bar DESC')->groupBy(array('foobar'));
      *
      * @param string $params the field and direction to order by
-     * @return Gs_QueryBuilder
+     * @return PO\QueryBuilder
      */
     public function groupBy($params)
     {

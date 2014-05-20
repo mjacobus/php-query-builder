@@ -1,36 +1,33 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Abstract
- */
-require_once 'Gs/QueryBuilder/Abstract.php';
+namespace PO\QueryBuilder;
 
 /**
  * Helper for building INSERT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
+class Insert extends Base
 {
 
     /**
      * @var string the table name
      */
-    protected $_table;
+    protected $table;
 
     /**
      * @var array the values to insert into the table
      */
-    protected $_values;
+    protected $values;
 
     /**
      * Set the table to insert data into
      *
      * @param string $table
-     * @return Gs_QueryBuilder_Insert
+     * @return PO\QueryBuilder\Insert
      */
     public function into($table)
     {
-        $this->_table = $table;
+        $this->table = $table;
         return $this;
     }
 
@@ -39,18 +36,18 @@ class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
      */
     public function getTable()
     {
-        return $this->_table;
+        return $this->table;
     }
 
     /**
      * Set the values to insert
      *
      * @param array $params key is the field and value is the value \o/
-     * @return Gs_QueryBuilder_Insert
+     * @return PO\QueryBuilder\Insert
      */
     public function values(array $values = array())
     {
-        $this->_values = $values; 
+        $this->values = $values;
         return $this;
     }
 
@@ -59,7 +56,7 @@ class Gs_QueryBuilder_Insert extends Gs_QueryBuilder_Abstract
      */
     public function getValues()
     {
-        return $this->_values;
+        return $this->values;
     }
 
     public function getRawQuery()

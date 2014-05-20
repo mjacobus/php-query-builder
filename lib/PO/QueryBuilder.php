@@ -2,9 +2,7 @@
 
 namespace PO;
 
-use Gs\QueryBuilder\Select;
-use Gs\QueryBuilder\Update;
-use Gs\QueryBuilder\Insert;
+use PO\QueryBuilder\Select;
 
 /**
  * Helper for building classes

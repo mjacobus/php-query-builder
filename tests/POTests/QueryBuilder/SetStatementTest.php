@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_SetStatement
- */
-require_once 'Gs/QueryBuilder/SetStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\LimitStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_SetStatementTest extends PHPUnit_Framework_TestCase
+class SetStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_SetStatement
+     * @param PO\QueryBuilder\SetStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_SetStatement(new Gs_QueryBuilder);
+        $this->o = new SetStatement(new QueryBuilder);
         $this->o->getBuilder()->getHelper()->setDoubleQuoted(true);
     }
 
@@ -27,7 +28,7 @@ class Gs_QueryBuilder_SetStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**

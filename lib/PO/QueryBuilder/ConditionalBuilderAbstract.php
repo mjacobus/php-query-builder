@@ -2,12 +2,6 @@
 
 namespace PO\QueryBuilder;
 
-use Gs\QueryBuilder\Base;
-use Gs\QueryBuilder\JoinStatement;
-use Gs\QueryBuilder\WhereStatement;
-use Gs\QueryBuilder\OrderStatement;
-use Gs\QueryBuilder\LimitStatement;
-
 /**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>

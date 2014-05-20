@@ -1,14 +1,11 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_Statement
- */
-require_once 'Gs/QueryBuilder/Statement.php';
+namespace QueryBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_UpdateStatement extends Gs_QueryBuilder_Statement
+class UpdateStatement extends Statement
 {
     /**
      * Informs that the query is not empty
@@ -31,7 +28,7 @@ class Gs_QueryBuilder_UpdateStatement extends Gs_QueryBuilder_Statement
 
     /**
      * Sets the table to update
-     * @return Gs_QueryBuilder_UpdateStatement
+     * @return PO\QueryBuilder\UpdateStatement
      */
     public function table($tableName)
     {

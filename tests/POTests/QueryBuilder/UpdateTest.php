@@ -1,17 +1,21 @@
 <?php
 
-require_once 'Gs/QueryBuilder/Update.php';
+namespace POTests\QueryBuilder;
 
-class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\UpdateStatement;
+
+class UpdateTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var Gs_QueryBuilder_Update
+     * @var PO\QueryBuilder\Update
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_Update();
+        $this->o = new Update();
         $this->o->getHelper()->setDoubleQuoted(true);
     }
 
@@ -20,7 +24,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectUpdateStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_UpdateStatement', $this->o->getUpdate());
+        $this->assertInstanceOf('PO\QueryBuilder\UpdateStatement', $this->o->getUpdate());
     }
 
     /**
@@ -28,7 +32,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectSetStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_SetStatement', $this->o->getSet());
+        $this->assertInstanceOf('PO\QueryBuilder\SetStatement', $this->o->getSet());
     }
 
     /**
@@ -36,7 +40,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectWhereStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_WhereStatement', $this->o->getWhere());
+        $this->assertInstanceOf('PO\QueryBuilder\WhereStatement', $this->o->getWhere());
     }
 
     /**
@@ -44,7 +48,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectOrderStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_OrderStatement', $this->o->getOrder());
+        $this->assertInstanceOf('PO\QueryBuilder\OrderStatement', $this->o->getOrder());
     }
 
     /**
@@ -52,7 +56,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectLimitStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_LimitStatement', $this->o->getLimit());
+        $this->assertInstanceOf('PO\QueryBuilder\LimitStatement', $this->o->getLimit());
     }
 
     /**
@@ -60,7 +64,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectJoinsStatement()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_JoinStatement', $this->o->getJoins());
+        $this->assertInstanceOf('PO\QueryBuilder\JoinStatement', $this->o->getJoins());
     }
 
     /**
@@ -68,7 +72,7 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itCanOverrideTheHelperCorrectHelper()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Helper', $this->o->getHelper());
+        $this->assertInstanceOf('PO\QueryBuilder\Helper', $this->o->getHelper());
     }
 
     /**
@@ -76,9 +80,9 @@ class Gs_QueryBuilder_UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectHelper()
     {
-        $helper = new Gs_QueryBuilder_Helper();
+        $helper = new PO\QueryBuilder\Helper();
         $options = array('helper' => $helper);
-        $object = new Gs_QueryBuilder($options);
+        $object = new PO\QueryBuilder($options);
         $this->assertSame($helper, $object->getHelper());
     }
 

@@ -2,8 +2,6 @@
 
 namespace PO\QueryBuilder;
 
-use Statement;
-
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */

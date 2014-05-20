@@ -1,24 +1,25 @@
 <?php
 
-/**
- * @see Gs_QueryBuilder_LimitStatement
- */
-require_once 'Gs/QueryBuilder/LimitStatement.php';
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\LimitStatement;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_LimitStatementTest extends PHPUnit_Framework_TestCase
+class LimitStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_LimitStatement
+     * @param PO\QueryBuilder\LimitStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_LimitStatement(new Gs_QueryBuilder);
+        $this->o = new LimitStatement(new QueryBuilder);
     }
 
     /**
@@ -26,7 +27,7 @@ class Gs_QueryBuilder_LimitStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**

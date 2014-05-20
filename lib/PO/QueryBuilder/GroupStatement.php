@@ -2,8 +2,6 @@
 
 namespace PO\QueryBuilder;
 
-require_once 'Gs/QueryBuilder/Statement.php';
-
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */

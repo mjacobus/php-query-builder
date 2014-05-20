@@ -1,19 +1,25 @@
 <?php
 
+namespace POTests\QueryBuilder;
+
+use PHPUnit_Framework_TestCase;
+use PO\QueryBuilder;
+use PO\QueryBuilder\UpdateStatement;
+
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Gs_QueryBuilder_UpdateStatementTest extends PHPUnit_Framework_TestCase
+class UpdateStatementTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param Gs_QueryBuilder_UpdateStatement
+     * @param PO\QueryBuilder\UpdateStatement
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new Gs_QueryBuilder_UpdateStatement(new Gs_QueryBuilder);
+        $this->o = new UpdateStatement(new QueryBuilder);
     }
 
     /**
@@ -21,7 +27,7 @@ class Gs_QueryBuilder_UpdateStatementTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('Gs_QueryBuilder_Statement', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statement', $this->o);
     }
 
     /**
