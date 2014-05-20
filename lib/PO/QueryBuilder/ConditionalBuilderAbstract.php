@@ -20,7 +20,7 @@ class ConditionalBuilderAbstract extends Base
     protected $order;
 
     /**
-     * @var PO\QueryBuilder\JoinStatement
+     * @var PO\QueryBuilder\JoinClause
      */
     protected $joins;
 
@@ -38,13 +38,13 @@ class ConditionalBuilderAbstract extends Base
         $this->where  = new WhereStatement($this);
         $this->order  = new OrderClause($this);
         $this->limit  = new LimitStatement($this);
-        $this->joins  = new JoinStatement($this);
+        $this->joins  = new JoinClause($this);
     }
 
     /**
      * Get the JOINS statements
      *
-     * @return PO\QueryBuilder\JoinStatement
+     * @return PO\QueryBuilder\JoinClause
      */
     public function getJoins()
     {

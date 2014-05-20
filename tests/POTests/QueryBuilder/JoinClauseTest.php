@@ -4,22 +4,22 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\JoinStatement;
+use PO\QueryBuilder\JoinClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class JoinStatementTest extends PHPUnit_Framework_TestCase
+class JoinClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\JoinStatement
+     * @param PO\QueryBuilder\JoinClause
      */
     protected $o;
 
     public function setUp()
     {
-        $this->o = new JoinStatement(new QueryBuilder);
+        $this->o = new JoinClause(new QueryBuilder);
     }
 
     /**
