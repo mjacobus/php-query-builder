@@ -11,11 +11,13 @@ branches:
     - master
 
 before_script:
-  - ./bin/travis/before_script.sh
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev --no-interaction
+  - ./bin/travis/install_phpcs.sh
 
 script:
   - mkdir -p build/logs
-  - phpunit --configuration=tests/phpunit.xml
+  - ./vendor/bin/phpunit --configuration=tests/phpunit.xml
   - ./bin/travis/run_phpcs.sh
 
 after_script:
