@@ -4,7 +4,7 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\JoinClause;
+use PO\QueryBuilder\Clauses\JoinClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -13,7 +13,7 @@ class JoinClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\JoinClause
+     * @param PO\QueryBuilder\Clauses\JoinClause
      */
     protected $o;
 
@@ -27,7 +27,7 @@ class JoinClauseTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clause', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\Base', $this->o);
     }
 
     /**

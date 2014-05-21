@@ -25,7 +25,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectUpdateClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\UpdateClause', $this->o->getUpdate());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\UpdateClause', $this->o->getUpdate());
     }
 
     /**
@@ -33,7 +33,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectSetClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\SetClause', $this->o->getSet());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\SetClause', $this->o->getSet());
     }
 
     /**
@@ -41,7 +41,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectWhereClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\WhereClause', $this->o->getWhere());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\WhereClause', $this->o->getWhere());
     }
 
     /**
@@ -49,7 +49,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectOrderClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\OrderClause', $this->o->getOrder());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\OrderClause', $this->o->getOrder());
     }
 
     /**
@@ -57,7 +57,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectLimitClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\LimitClause', $this->o->getLimit());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\LimitClause', $this->o->getLimit());
     }
 
     /**
@@ -65,7 +65,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectJoinsClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\JoinClause', $this->o->getJoins());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\JoinClause', $this->o->getJoins());
     }
 
     /**

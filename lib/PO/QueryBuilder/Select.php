@@ -2,6 +2,10 @@
 
 namespace PO\QueryBuilder;
 
+use PO\QueryBuilder\Clauses\SelectClause;
+use PO\QueryBuilder\Clauses\FromClause;
+use PO\QueryBuilder\Clauses\GroupClause;
+
 /**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -9,17 +13,17 @@ namespace PO\QueryBuilder;
 class Select extends ConditionalBuilderAbstract
 {
     /**
-     * @var PO\QueryBuilder\SelectClause
+     * @var PO\QueryBuilder\Clauses\SelectClause
      */
     protected $select;
 
     /**
-     * @var PO\QueryBuilder\FromClause
+     * @var PO\QueryBuilder\Clauses\FromClause
      */
     protected $from;
 
     /**
-     * @var PO\QueryBuilder\GroupClause
+     * @var PO\QueryBuilder\Clauses\GroupClause
      */
     protected $group;
 
@@ -38,7 +42,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the SELECT statement
      *
-     * @return PO\QueryBuilder\SelectClause
+     * @return PO\QueryBuilder\Clauses\SelectClause
      */
     public function getSelect()
     {
@@ -48,7 +52,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the FROM statement
      *
-     * @return PO\QueryBuilder\FromClause
+     * @return PO\QueryBuilder\Clauses\FromClause
      */
     public function getFrom()
     {
@@ -58,7 +62,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the GROUP statement
      *
-     * @return PO\QueryBuilder\GroupClause
+     * @return PO\QueryBuilder\Clauses\GroupClause
      */
     public function getGroup()
     {
@@ -80,7 +84,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clause]
+     * @return array[PO\QueryBuilder\Clauses\Clause]
      */
     public function getClauses()
     {

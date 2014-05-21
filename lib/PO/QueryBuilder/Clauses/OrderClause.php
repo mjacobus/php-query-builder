@@ -1,11 +1,11 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class OrderClause extends Clause
+class OrderClause extends Base
 {
     /**
      * Return the resulting query

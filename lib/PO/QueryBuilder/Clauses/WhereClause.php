@@ -1,11 +1,11 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class WhereClause extends Clause
+class WhereClause extends Base
 {
 
     /**
@@ -19,7 +19,7 @@ class WhereClause extends Clause
      * @param string $fieldOrCondition
      * @param string $value
      * @param string $operator
-     * @return PO\QueryBuilder\WhereClause
+     * @return PO\QueryBuilder\Clauses\WhereClause
      */
     public function addCondition($fieldOrCondition, $value = null, $operator = '=')
     {
@@ -46,7 +46,7 @@ class WhereClause extends Clause
      *   ));
      *
      * @param array $conditions
-     * @return PO\QueryBuilder\WhereClause
+     * @return PO\QueryBuilder\Clauses\WhereClause
      */
     public function addConditions(array $conditions = array())
     {

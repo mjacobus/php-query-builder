@@ -1,11 +1,11 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class FromClause extends Clause
+class FromClause extends Base
 {
 
     /**
@@ -13,7 +13,7 @@ class FromClause extends Clause
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromClause
+     * @return PO\QueryBuilder\Clauses\FromClause
      */
     public function innerJoin($join, $on = null)
     {
@@ -25,7 +25,7 @@ class FromClause extends Clause
      *
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromClause
+     * @return PO\QueryBuilder\Clauses\FromClause
      */
     public function leftJoin($join, $on = null)
     {
@@ -51,7 +51,7 @@ class FromClause extends Clause
      * @param string $type the type of join (INNER, LEFT)
      * @param string $join the table to join
      * @param string $on the condtition to join
-     * @return PO\QueryBuilder\FromClause
+     * @return PO\QueryBuilder\Clauses\FromClause
      */
     private function addJoin($type, $join, $on = null)
     {

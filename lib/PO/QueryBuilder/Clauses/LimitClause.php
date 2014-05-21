@@ -1,11 +1,11 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class LimitClause extends Clause
+class LimitClause extends Base
 {
     /**
      * Return the resulting query

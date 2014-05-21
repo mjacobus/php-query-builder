@@ -25,7 +25,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectSelectClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\SelectClause', $this->o->getSelect());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\SelectClause', $this->o->getSelect());
     }
 
     /**
@@ -33,7 +33,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectFromClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\FromClause', $this->o->getFrom());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\FromClause', $this->o->getFrom());
     }
 
     /**
@@ -41,7 +41,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectWhereClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\WhereClause', $this->o->getWhere());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\WhereClause', $this->o->getWhere());
     }
 
     /**
@@ -49,7 +49,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectOrderClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\OrderClause', $this->o->getOrder());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\OrderClause', $this->o->getOrder());
     }
 
     /**
@@ -57,7 +57,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectLimitClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\LimitClause', $this->o->getLimit());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\LimitClause', $this->o->getLimit());
     }
 
     /**
@@ -65,7 +65,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectJoinsClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\JoinClause', $this->o->getJoins());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\JoinClause', $this->o->getJoins());
     }
 
     /**
@@ -73,7 +73,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itInitializesWithTheCorrectGroupClause()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\GroupClause', $this->o->getGroup());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\GroupClause', $this->o->getGroup());
     }
 
     /**

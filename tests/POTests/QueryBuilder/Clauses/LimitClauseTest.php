@@ -4,7 +4,7 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\LimitClause;
+use PO\QueryBuilder\Clauses\LimitClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -27,7 +27,7 @@ class LimitClauseTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clause', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\Base', $this->o);
     }
 
     /**

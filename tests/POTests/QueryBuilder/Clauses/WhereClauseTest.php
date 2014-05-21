@@ -4,7 +4,7 @@ namespace POTests\QueryBuilder;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\WhereClause;
+use PO\QueryBuilder\Clauses\WhereClause;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -13,7 +13,7 @@ class WhereClauseTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param PO\QueryBuilder\WhereClause
+     * @param PO\QueryBuilder\Clauses\WhereClause
      */
     protected $o;
 
@@ -28,7 +28,7 @@ class WhereClauseTest extends PHPUnit_Framework_TestCase
      */
     public function itSetQueryBuilderOnTheConstructor()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clause', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\Base', $this->o);
     }
 
     /**

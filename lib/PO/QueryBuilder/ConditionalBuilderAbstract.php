@@ -2,6 +2,11 @@
 
 namespace PO\QueryBuilder;
 
+use PO\QueryBuilder\Clauses\WhereClause;
+use PO\QueryBuilder\Clauses\OrderClause;
+use PO\QueryBuilder\Clauses\LimitClause;
+use PO\QueryBuilder\Clauses\JoinClause;
+
 /**
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -10,22 +15,22 @@ class ConditionalBuilderAbstract extends Base
 {
 
     /**
-     * @var PO\QueryBuilder\WhereClause
+     * @var PO\QueryBuilder\Clauses\WhereClause
      */
     protected $where;
 
     /**
-     * @var PO\QueryBuilder\OrderClause
+     * @var PO\QueryBuilder\Clauses\OrderClause
      */
     protected $order;
 
     /**
-     * @var PO\QueryBuilder\JoinClause
+     * @var PO\QueryBuilder\Clauses\JoinClause
      */
     protected $joins;
 
     /**
-     * @var PO\QueryBuilder\LimitClause
+     * @var PO\QueryBuilder\Clauses\LimitClause
      */
     protected $limit;
 
@@ -44,7 +49,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the JOINS statements
      *
-     * @return PO\QueryBuilder\JoinClause
+     * @return PO\QueryBuilder\Clauses\JoinClause
      */
     public function getJoins()
     {
@@ -54,7 +59,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the WHERE statement
      *
-     * @return PO\QueryBuilder\WhereClause
+     * @return PO\QueryBuilder\Clauses\WhereClause
      */
     public function getWhere()
     {
@@ -64,7 +69,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the ORDER statement
      *
-     * @return PO\QueryBuilder\OrderClause
+     * @return PO\QueryBuilder\Clauses\OrderClause
      */
     public function getOrder()
     {
@@ -74,7 +79,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the LIMIT statement
      *
-     * @return PO\QueryBuilder\OrderClause
+     * @return PO\QueryBuilder\Clauses\OrderClause
      */
     public function getLimit()
     {
@@ -84,7 +89,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clause]
+     * @return array[PO\QueryBuilder\Clauses\Clause]
      */
     public function getClauses()
     {

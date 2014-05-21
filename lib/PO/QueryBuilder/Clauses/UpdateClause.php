@@ -1,11 +1,11 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class UpdateClause extends Clause
+class UpdateClause extends Base
 {
     /**
      * Informs that the query is not empty
@@ -28,7 +28,7 @@ class UpdateClause extends Clause
 
     /**
      * Sets the table to update
-     * @return PO\QueryBuilder\UpdateClause
+     * @return PO\QueryBuilder\Clauses\UpdateClause
      */
     public function table($tableName)
     {

@@ -2,6 +2,9 @@
 
 namespace PO\QueryBuilder;
 
+use PO\QueryBuilder\Clauses\UpdateClause;
+use PO\QueryBuilder\Clauses\SetClause;
+
 /**
  * Helper for building UPDATE SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -10,12 +13,12 @@ class Update extends ConditionalBuilderAbstract
 {
 
     /**
-     * @var PO\QueryBuilder\SetClause
+     * @var PO\QueryBuilder\Clauses\SetClause
      */
     protected $set;
 
     /**
-     * @var PO\QueryBuilder\UpdateClause
+     * @var PO\QueryBuilder\Clauses\UpdateClause
      */
     protected $update;
 
@@ -78,7 +81,7 @@ class Update extends ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clause]
+     * @return array[PO\QueryBuilder\Clauses\Clause]
      */
     public function getClauses()
     {
@@ -94,7 +97,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the SET statement
-     * @return PO\QueryBuilder\SetClause
+     * @return PO\QueryBuilder\Clauses\SetClause
      */
     public function getSet()
     {
@@ -103,7 +106,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the UPDATE statement
-     * @return PO\QueryBuilder\UpdateClause
+     * @return PO\QueryBuilder\Clauses\UpdateClause
      */
     public function getUpdate()
     {

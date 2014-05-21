@@ -1,11 +1,13 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Clauses;
+
+use PO\QueryBuilder\Base as BaseBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Clause
+class Base
 {
     /**
      * @param PO\QueryBuilder $builder
@@ -20,7 +22,7 @@ class Clause
     /**
      * @param PO\QueryBuilder\Base $builder
      */
-    public function __construct(Base $builder)
+    public function __construct(BaseBuilder $builder)
     {
         $this->builder = $builder;
     }
@@ -39,7 +41,7 @@ class Clause
      * Add one param to the existing collection of params
      *
      * @param mixed $param
-     * @return PO\QueryBuilder\Clause
+     * @return PO\QueryBuilder\Clauses\Clause
      */
     public function addParam($param)
     {
@@ -51,7 +53,7 @@ class Clause
      * Set the params. Remove old ones.
      *
      * @param array $params
-     * @return PO\QueryBuilder\Clause
+     * @return PO\QueryBuilder\Clauses\Clause
      */
     public function setParams(array $params)
     {
@@ -73,7 +75,7 @@ class Clause
      * Add a collection of params
      *
      * @param array $params
-     * @return PO\QueryBuilder\Clause
+     * @return PO\QueryBuilder\Clauses\Clause
      */
     public function addParams(array $params)
     {
@@ -85,7 +87,7 @@ class Clause
     }
 
     /**
-     * @return PO\QueryBuilder\Clause
+     * @return PO\QueryBuilder\Clauses\Clause
      */
     public function reset()
     {
