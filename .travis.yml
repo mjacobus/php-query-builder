@@ -11,8 +11,8 @@ branches:
     - master
 
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev --no-interaction
+  - curl -s getcomposer.org/installer | php -d detect_unicode=Off
+  # - php composer.phar install --dev --no-interaction
   - ./bin/travis/install_phpcs.sh
 
 script:
