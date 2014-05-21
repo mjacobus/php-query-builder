@@ -6,9 +6,9 @@ php:
   - 5.3.3
   - hhvm
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
