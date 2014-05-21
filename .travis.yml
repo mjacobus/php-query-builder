@@ -11,14 +11,11 @@ branches:
     - master
 
 before_script:
-  - phpenv config-add ./bin/travis/php.ini
-  - curl -s getcomposer.org/installer | php -d detect_unicode=Off
-  - php composer.phar install --dev --no-interaction
-  - ./bin/travis/install_phpcs.sh
+  - ./bin/travis/before_script.sh
 
 script:
   - mkdir -p build/logs
-  - ./vendor/bin/phpunit --configuration=tests/phpunit.xml
+  - phpunit --configuration=tests/phpunit.xml
   - ./bin/travis/run_phpcs.sh
 
 after_script:
@@ -28,4 +25,3 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 5.3.3
-    - php: hhvm
