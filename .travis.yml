@@ -11,6 +11,7 @@ branches:
     - master
 
 before_script:
+  - phpenv config-add ./bin/travis/php.ini
   - curl -s getcomposer.org/installer | php -d detect_unicode=Off
   - php composer.phar install --dev --no-interaction
   - ./bin/travis/install_phpcs.sh
