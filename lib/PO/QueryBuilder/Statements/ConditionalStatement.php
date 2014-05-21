@@ -11,7 +11,7 @@ use PO\QueryBuilder\Clauses\JoinClause;
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class ConditionalBuilderAbstract extends Base
+abstract class ConditionalStatement extends Base
 {
 
     /**

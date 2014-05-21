@@ -12,7 +12,7 @@ use PO\QueryBuilder\Clauses\GroupClause;
  * Helper for building SELECT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Select extends ConditionalBuilderAbstract
+class Select extends ConditionalStatement
 {
     /**
      * @var SelectClause

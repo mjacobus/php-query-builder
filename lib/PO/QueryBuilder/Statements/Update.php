@@ -10,7 +10,7 @@ use PO\QueryBuilder\Clauses\SetClause;
  * Helper for building UPDATE SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class Update extends ConditionalBuilderAbstract
+class Update extends ConditionalStatement
 {
 
     /**
