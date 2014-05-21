@@ -1,7 +1,8 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Statements;
 
+use PO\QueryBuilder\Clauses\Clause;
 use PO\QueryBuilder\Clauses\UpdateClause;
 use PO\QueryBuilder\Clauses\SetClause;
 
@@ -13,12 +14,12 @@ class Update extends ConditionalBuilderAbstract
 {
 
     /**
-     * @var PO\QueryBuilder\Clauses\SetClause
+     * @var SetClause
      */
     protected $set;
 
     /**
-     * @var PO\QueryBuilder\Clauses\UpdateClause
+     * @var UpdateClause
      */
     protected $update;
 
@@ -33,7 +34,7 @@ class Update extends ConditionalBuilderAbstract
      * Sets (overrides) the values to be set
      *
      * @param array $values the values to set
-     * @return PO\QueryBuilder\Update
+     * @return self
      */
     public function set(array $values = array())
     {
@@ -45,7 +46,7 @@ class Update extends ConditionalBuilderAbstract
      * Adds values to be set
      *
      * @param array $values the values to set
-     * @return PO\QueryBuilder\Update
+     * @return self
      */
     public function addSets(array $values = array())
     {
@@ -58,7 +59,7 @@ class Update extends ConditionalBuilderAbstract
      *
      * @param string $column
      * @param string $value
-     * @return PO\QueryBuilder\Update
+     * @return self
      */
     public function addSet($column, $value)
     {
@@ -70,7 +71,7 @@ class Update extends ConditionalBuilderAbstract
      * Set the table to update
      *
      * @param string $table
-     * @return PO\QueryBuilder\Update
+     * @return self
      */
     public function table($table)
     {
@@ -81,7 +82,7 @@ class Update extends ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clauses\Clause]
+     * @return array[Clause]
      */
     public function getClauses()
     {
@@ -97,7 +98,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the SET statement
-     * @return PO\QueryBuilder\Clauses\SetClause
+     * @return SetClause
      */
     public function getSet()
     {
@@ -106,7 +107,7 @@ class Update extends ConditionalBuilderAbstract
 
     /**
      * Get the UPDATE statement
-     * @return PO\QueryBuilder\Clauses\UpdateClause
+     * @return UpdateClause
      */
     public function getUpdate()
     {

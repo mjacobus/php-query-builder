@@ -1,10 +1,10 @@
 <?php
 
-namespace POTests\QueryBuilder;
+namespace POTests\QueryBuilder\Statements;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\ConditionalBuilder;
+use PO\QueryBuilder\Statements\ConditionalBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>

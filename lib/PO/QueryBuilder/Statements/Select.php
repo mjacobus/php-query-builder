@@ -1,7 +1,9 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Statements;
 
+use PO\QueryBuilder\Helper;
+use PO\QueryBuilder\Clauses\Clause;
 use PO\QueryBuilder\Clauses\SelectClause;
 use PO\QueryBuilder\Clauses\FromClause;
 use PO\QueryBuilder\Clauses\GroupClause;
@@ -13,17 +15,17 @@ use PO\QueryBuilder\Clauses\GroupClause;
 class Select extends ConditionalBuilderAbstract
 {
     /**
-     * @var PO\QueryBuilder\Clauses\SelectClause
+     * @var SelectClause
      */
     protected $select;
 
     /**
-     * @var PO\QueryBuilder\Clauses\FromClause
+     * @var FromClause
      */
     protected $from;
 
     /**
-     * @var PO\QueryBuilder\Clauses\GroupClause
+     * @var GroupClause
      */
     protected $group;
 
@@ -42,7 +44,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the SELECT statement
      *
-     * @return PO\QueryBuilder\Clauses\SelectClause
+     * @return SelectClause
      */
     public function getSelect()
     {
@@ -52,7 +54,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the FROM statement
      *
-     * @return PO\QueryBuilder\Clauses\FromClause
+     * @return FromClause
      */
     public function getFrom()
     {
@@ -62,7 +64,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the GROUP statement
      *
-     * @return PO\QueryBuilder\Clauses\GroupClause
+     * @return GroupClause
      */
     public function getGroup()
     {
@@ -73,7 +75,7 @@ class Select extends ConditionalBuilderAbstract
      * Add params to the query statement
      *
      * @param string|array $param
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function select($param)
     {
@@ -84,7 +86,7 @@ class Select extends ConditionalBuilderAbstract
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clauses\Clause]
+     * @return array[Clause]
      */
     public function getClauses()
     {
@@ -103,7 +105,7 @@ class Select extends ConditionalBuilderAbstract
      * Set the from statement
      *
      * @param array|string
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function from($params)
     {
@@ -118,7 +120,7 @@ class Select extends ConditionalBuilderAbstract
      * $this->groupBy('foo')->groupBy('bar DESC')->groupBy(array('foobar'));
      *
      * @param string $params the field and direction to order by
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function groupBy($params)
     {

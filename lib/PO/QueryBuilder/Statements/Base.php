@@ -1,6 +1,9 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Statements;
+
+use PO\QueryBuilder;
+use PO\QueryBuilder\Helper;
 
 /**
  * Helper for building classes
@@ -9,7 +12,7 @@ namespace PO\QueryBuilder;
 abstract class Base
 {
     /**
-     * @var PO\QueryBuilder\Helper
+     * @var Helper
      */
     protected $helper;
 
@@ -19,7 +22,7 @@ abstract class Base
      *
      * @param array $options Hash of options
      *              Allowed options:
-     *                  helper: PO\QueryBuilder\Helper
+     *                  helper: Helper
      */
     public function __construct($options = array())
     {
@@ -45,8 +48,8 @@ abstract class Base
     /**
      * Set the helper
      *
-     * @param PO\QueryBuilder\Helper $helper
-     * @return PO\QueryBuilder
+     * @param Helper $helper
+     * @return self
      */
     public function setHelper(Helper $helper)
     {
@@ -57,7 +60,7 @@ abstract class Base
     /**
      * Get the helper
      *
-     * @return PO\QueryBuilderHelper
+     * @return self
      */
     public function getHelper()
     {

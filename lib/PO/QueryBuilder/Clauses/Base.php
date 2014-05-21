@@ -2,7 +2,8 @@
 
 namespace PO\QueryBuilder\Clauses;
 
-use PO\QueryBuilder\Base as BaseBuilder;
+use PO\QueryBuilder;
+use PO\QueryBuilder\Statements\Base as BaseBuilder;
 
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -10,7 +11,7 @@ use PO\QueryBuilder\Base as BaseBuilder;
 class Base
 {
     /**
-     * @param PO\QueryBuilder $builder
+     * @param QueryBuilder $builder
      */
     protected $builder;
 
@@ -20,7 +21,7 @@ class Base
     protected $params = array();
 
     /**
-     * @param PO\QueryBuilder\Base $builder
+     * @param BaseBuilder $builder
      */
     public function __construct(BaseBuilder $builder)
     {

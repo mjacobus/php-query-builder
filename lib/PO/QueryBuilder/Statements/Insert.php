@@ -1,6 +1,8 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Statements;
+
+use PO\QueryBuilder\Clauses\InsertClause;
 
 /**
  * Helper for building INSERT SQL
@@ -23,7 +25,7 @@ class Insert extends Base
      * Set the table to insert data into
      *
      * @param string $table
-     * @return PO\QueryBuilder\Insert
+     * @return self
      */
     public function into($table)
     {
@@ -43,7 +45,7 @@ class Insert extends Base
      * Set the values to insert
      *
      * @param array $params key is the field and value is the value \o/
-     * @return PO\QueryBuilder\Insert
+     * @return self
      */
     public function values(array $values = array())
     {

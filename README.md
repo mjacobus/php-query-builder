@@ -48,10 +48,7 @@ $select = PO\QueryBuilder::factorySelect()
     ->select($fields);
 
 // or alternatively
-$select = new PO\QueryBuilder\Select($fields);
-
-// or yet
-$select = new PO\QueryBuilder\Select();
+$select = new PO\QueryBuilder\Statements\Select();
 $select->select($fields);
 
 // From
@@ -74,7 +71,7 @@ $select->toSql();
 $insert = PO\QueryBuilder::insert();
 
 // Or alternatively
-$insert = new PO\QueryBuilder\Insert($values);
+$insert = new PO\QueryBuilder\Statements\Insert();
 
 $insert->into('users')->values(array(
     'name'  => 'Jon Doe',
@@ -98,7 +95,7 @@ $insert->toSql();
 $update = PO\QueryBuilder::update('users');
 
 // or
-$update = new PO\QueryBuilder\Update;
+$update = new PO\QueryBuilder\Statements\Update;
 $update->table('users');
 
 // setting values and conditions

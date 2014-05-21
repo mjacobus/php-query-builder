@@ -2,9 +2,9 @@
 
 namespace PO;
 
-use PO\QueryBuilder\Select;
-use PO\QueryBuilder\Update;
-use PO\QueryBuilder\Insert;
+use PO\QueryBuilder\Statements\Select;
+use PO\QueryBuilder\Statements\Update;
+use PO\QueryBuilder\Statements\Insert;
 
 /**
  * Helper for building classes
@@ -17,7 +17,7 @@ class QueryBuilder extends Select
      * Factory Select Builder
      *
      * @params array $params The select filds for the select builder
-     * @return PO\QueryBuilder\Select
+     * @return Select
      */
     public static function factorySelect($params = array())
     {
@@ -30,7 +30,7 @@ class QueryBuilder extends Select
      * Factory Update Builder
      *
      * @param string $table the table to update
-     * @return PO\QueryBuilder\Update
+     * @return Update
      */
     public static function update($table = null)
     {
@@ -47,7 +47,7 @@ class QueryBuilder extends Select
      * Factory Insert Builder
      *
      * @param string $table the table to update
-     * @return PO\QueryBuilder\Insert
+     * @return Insert
      */
     public static function insert($table = null)
     {

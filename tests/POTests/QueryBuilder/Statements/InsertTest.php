@@ -1,16 +1,16 @@
 <?php
 
-namespace POTests\QueryBuilder;
+namespace POTests\QueryBuilder\Statements;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\Insert;
+use PO\QueryBuilder\Statements\Insert;
 
 class InsertTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var PO\QueryBuilder\Insert
+     * @var Insert
      */
     protected $o;
 
@@ -25,7 +25,7 @@ class InsertTest extends PHPUnit_Framework_TestCase
      */
     public function itIsAQueryBuilderBase()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Base', $this->o);
+        $this->assertInstanceOf('PO\QueryBuilder\Statements\Base', $this->o);
     }
 
 

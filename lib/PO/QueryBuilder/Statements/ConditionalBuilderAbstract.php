@@ -1,6 +1,6 @@
 <?php
 
-namespace PO\QueryBuilder;
+namespace PO\QueryBuilder\Statements;
 
 use PO\QueryBuilder\Clauses\WhereClause;
 use PO\QueryBuilder\Clauses\OrderClause;
@@ -15,22 +15,22 @@ class ConditionalBuilderAbstract extends Base
 {
 
     /**
-     * @var PO\QueryBuilder\Clauses\WhereClause
+     * @var WhereClause
      */
     protected $where;
 
     /**
-     * @var PO\QueryBuilder\Clauses\OrderClause
+     * @var OrderClause
      */
     protected $order;
 
     /**
-     * @var PO\QueryBuilder\Clauses\JoinClause
+     * @var JoinClause
      */
     protected $joins;
 
     /**
-     * @var PO\QueryBuilder\Clauses\LimitClause
+     * @var LimitClause
      */
     protected $limit;
 
@@ -49,7 +49,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the JOINS statements
      *
-     * @return PO\QueryBuilder\Clauses\JoinClause
+     * @return JoinClause
      */
     public function getJoins()
     {
@@ -59,7 +59,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the WHERE statement
      *
-     * @return PO\QueryBuilder\Clauses\WhereClause
+     * @return WhereClause
      */
     public function getWhere()
     {
@@ -69,7 +69,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the ORDER statement
      *
-     * @return PO\QueryBuilder\Clauses\OrderClause
+     * @return OrderClause
      */
     public function getOrder()
     {
@@ -79,7 +79,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the LIMIT statement
      *
-     * @return PO\QueryBuilder\Clauses\OrderClause
+     * @return OrderClause
      */
     public function getLimit()
     {
@@ -89,7 +89,7 @@ class ConditionalBuilderAbstract extends Base
     /**
      * Get the statements in the order they should be rendered
      *
-     * @return array[PO\QueryBuilder\Clauses\Clause]
+     * @return array[Clause]
      */
     public function getClauses()
     {
@@ -101,7 +101,7 @@ class ConditionalBuilderAbstract extends Base
      *
      * @param string $join
      * @param string $on
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function innerJoin($join, $on = null)
     {
@@ -114,7 +114,7 @@ class ConditionalBuilderAbstract extends Base
      *
      * @param string $join
      * @param string $on
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function leftJoin($join, $on = null)
     {
@@ -157,7 +157,7 @@ class ConditionalBuilderAbstract extends Base
      * $this->orderBy('foo')->orderBy('bar DESC')->orderBy(array('foobar'));
      *
      * @param string $params the field and direction to order by
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function orderBy($params)
     {
@@ -171,7 +171,7 @@ class ConditionalBuilderAbstract extends Base
      *
      * @param int $limit
      * @param int $offset
-     * @return PO\QueryBuilder
+     * @return self
      */
     public function limit($limit, $offset = null)
     {
