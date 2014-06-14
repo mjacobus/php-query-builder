@@ -1,1 +1,3 @@
 repo_token: f8Cr510NkUd3jxQvN4neGuGfHOijWU9j4
+coverage_clover: coverage/coverage.xml
+json_path: build/logs/coveralls-upload.json
