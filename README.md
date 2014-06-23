@@ -4,6 +4,7 @@ Query Builder for easing the SQL composing
 
 [![Build Status](https://travis-ci.org/mjacobus/php-query-builder.png?branch=master)](https://travis-ci.org/mjacobus/php-query-builder)
 [![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-query-builder)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/php-query-builder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/php-query-builder/?branch=master)
 
 ## Installing
 
