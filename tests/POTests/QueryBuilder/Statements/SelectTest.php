@@ -151,8 +151,8 @@ class SelectTest extends PHPUnit_Framework_TestCase
         $this->o->limit(10);
         $this->assertEquals($sql, $this->o->toSql());
 
-        $sql .= ', 2';
-        $this->o->limit(10, 2);
+        $sql .= ', 3';
+        $this->o->limit(10, 3);
         $this->assertEquals($sql, $this->o->toSql());
     }
 
@@ -194,8 +194,8 @@ class SelectTest extends PHPUnit_Framework_TestCase
      */
     public function itAddsLeftJoin()
     {
-        $this->o->from('table')->leftJoin('t1')->leftJoin('t2', 't1.id = t2.t1_id');
-        $sql = 'LEFT JOIN t1 LEFT JOIN t2 ON t1.id = t2.t1_id';
+        $this->o->from('table')->leftJoin('t1')->leftJoin('t3', 't1.id = t3.t1_id');
+        $sql = 'LEFT JOIN t1 LEFT JOIN t3 ON t1.id = t3.t1_id';
         $this->assertEquals($sql, $this->o->getJoins()->toSql());
     }
 
@@ -216,7 +216,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
             ->where('a', 'b')
             ->where('a', 'x', '!=')
             ->where(array(
-                'foo' => 'bar',
+                'bar' => 'foo',
                 'foobar' => 'foo'
             ));
 
@@ -224,7 +224,7 @@ class SelectTest extends PHPUnit_Framework_TestCase
             'a = 1',
             'a = "b"',
             'a != "x"',
-            'foo = "bar"',
+            'bar = "foo"',
             'foobar = "foo"',
         );
 
