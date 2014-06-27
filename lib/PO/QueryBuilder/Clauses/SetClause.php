@@ -11,19 +11,20 @@ class SetClause extends Base
     /**
      * Set (override) the values to be set
      *
-     * @param array $values
+     * @param  array                     $values
      * @return PO\QueryBuilder\SetClause
      */
     public function set(array $params = array())
     {
         $this->setParams(array())->addSets($params);
+
         return $this;
     }
 
     /**
      * Add the values to be set
      *
-     * @param array $values
+     * @param  array                     $values
      * @return PO\QueryBuilder\SetClause
      */
     public function addSets(array $values = array())
@@ -38,13 +39,14 @@ class SetClause extends Base
     /**
      * Add the values to be set
      *
-     * @param string $column
-     * @param string $value
+     * @param  string                    $column
+     * @param  string                    $value
      * @return PO\QueryBuilder\SetClause
      */
     public function addSet($column, $value)
     {
         $this->params[$column] = $value;
+
         return $this;
     }
 

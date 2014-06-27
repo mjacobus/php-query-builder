@@ -41,26 +41,26 @@ class Base
     /**
      * Add one param to the existing collection of params
      *
-     * @param mixed $param
+     * @param  mixed                          $param
      * @return PO\QueryBuilder\Clauses\Clause
      */
     public function addParam($param)
     {
         $this->params[] = $param;
+
         return $this;
     }
 
     /**
      * Set the params. Remove old ones.
      *
-     * @param array $params
+     * @param  array                          $params
      * @return PO\QueryBuilder\Clauses\Clause
      */
     public function setParams(array $params)
     {
         return $this->reset()->addParams($params);
     }
-
 
     /**
      * @param mixed $param
@@ -75,7 +75,7 @@ class Base
     /**
      * Add a collection of params
      *
-     * @param array $params
+     * @param  array                          $params
      * @return PO\QueryBuilder\Clauses\Clause
      */
     public function addParams(array $params)
@@ -93,6 +93,7 @@ class Base
     public function reset()
     {
         $this->params = array();
+
         return $this;
     }
 

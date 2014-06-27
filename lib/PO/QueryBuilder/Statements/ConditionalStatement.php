@@ -99,26 +99,28 @@ abstract class ConditionalStatement extends Base
     /**
      * Adds INNER JOIN to the query
      *
-     * @param string $join
-     * @param string $on
+     * @param  string $join
+     * @param  string $on
      * @return self
      */
     public function innerJoin($join, $on = null)
     {
         $this->getJoins()->innerJoin($join, $on);
+
         return $this;
     }
 
     /**
      * Adds LEFT JOIN to the query
      *
-     * @param string $join
-     * @param string $on
+     * @param  string $join
+     * @param  string $on
      * @return self
      */
     public function leftJoin($join, $on = null)
     {
         $this->getJoins()->leftJoin($join, $on);
+
         return $this;
     }
 
@@ -134,9 +136,9 @@ abstract class ConditionalStatement extends Base
      *           'foobar' => 'foo'
      *       ));
      *
-     * @param array|string $conditions
-     * @param string $value
-     * @param string $operator
+     * @param  array|string    $conditions
+     * @param  string          $value
+     * @param  string          $operator
      * @return PO\QueryBuilder
      */
     public function where($conditions, $value = null, $operator = '=')
@@ -156,12 +158,13 @@ abstract class ConditionalStatement extends Base
      *
      * $this->orderBy('foo')->orderBy('bar DESC')->orderBy(array('foobar'));
      *
-     * @param string $params the field and direction to order by
+     * @param  string $params the field and direction to order by
      * @return self
      */
     public function orderBy($params)
     {
         $this->getOrder()->addParams((array) $params);
+
         return $this;
     }
 
@@ -169,8 +172,8 @@ abstract class ConditionalStatement extends Base
      * Add limit
      * I.E.
      *
-     * @param int $limit
-     * @param int $offset
+     * @param  int  $limit
+     * @param  int  $offset
      * @return self
      */
     public function limit($limit, $offset = null)

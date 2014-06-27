@@ -11,8 +11,8 @@ class FromClause extends Base
     /**
      * Inner Joins a table
      *
-     * @param string $join the table to join
-     * @param string $on the condtition to join
+     * @param  string                             $join the table to join
+     * @param  string                             $on   the condtition to join
      * @return PO\QueryBuilder\Clauses\FromClause
      */
     public function innerJoin($join, $on = null)
@@ -23,8 +23,8 @@ class FromClause extends Base
     /**
      * Left Joins a table
      *
-     * @param string $join the table to join
-     * @param string $on the condtition to join
+     * @param  string                             $join the table to join
+     * @param  string                             $on   the condtition to join
      * @return PO\QueryBuilder\Clauses\FromClause
      */
     public function leftJoin($join, $on = null)
@@ -48,9 +48,9 @@ class FromClause extends Base
     /**
      * Joins a table
      *
-     * @param string $type the type of join (INNER, LEFT)
-     * @param string $join the table to join
-     * @param string $on the condtition to join
+     * @param  string                             $type the type of join (INNER, LEFT)
+     * @param  string                             $join the table to join
+     * @param  string                             $on   the condtition to join
      * @return PO\QueryBuilder\Clauses\FromClause
      */
     private function addJoin($type, $join, $on = null)
@@ -62,6 +62,7 @@ class FromClause extends Base
         }
 
         $this->addParam($join);
+
         return $this;
     }
 }

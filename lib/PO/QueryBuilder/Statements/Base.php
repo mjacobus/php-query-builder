@@ -16,13 +16,12 @@ abstract class Base
      */
     protected $helper;
 
-
     /**
      * Constructor
      *
      * @param array $options Hash of options
-     *              Allowed options:
-     *                  helper: Helper
+     *                       Allowed options:
+     *                       helper: Helper
      */
     public function __construct($options = array())
     {
@@ -48,12 +47,13 @@ abstract class Base
     /**
      * Set the helper
      *
-     * @param Helper $helper
+     * @param  Helper $helper
      * @return self
      */
     public function setHelper(Helper $helper)
     {
         $this->helper = $helper;
+
         return $this;
     }
 
@@ -70,7 +70,7 @@ abstract class Base
     /**
      * Converts to the desired sql
      *
-     * @param array $params the placeholders to replace for
+     * @param  array  $params the placeholders to replace for
      * @return string
      */
     public function toSql(array $params = array())

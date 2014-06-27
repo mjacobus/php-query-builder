@@ -33,6 +33,7 @@ class UpdateClause extends Base
     public function table($tableName)
     {
         $this->setParams(array($tableName));
+
         return $this;
     }
 }

@@ -17,12 +17,13 @@ class Helper
     /**
      * Set the double quotes flag
      *
-     * @param bool $flag
+     * @param  bool   $flag
      * @return string
      */
     public function setDoubleQuoted($flag)
     {
         $this->doubleQuoted = $flag;
+
         return $this;
     }
 
@@ -40,7 +41,7 @@ class Helper
      * Quote value with either double or single quotes, depending on the
      * configuration
      *
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     public function quote($value)
@@ -55,31 +56,33 @@ class Helper
     /**
      * Quote value with double quotes
      *
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     public function doubleQuote($value)
     {
         $escaped =  str_replace('"', '\"', $value);
+
         return '"' . $escaped . '"';
     }
 
     /**
      * Quote value with single quotes
      *
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     public function singleQuote($value)
     {
         $escaped =  str_replace("'", "\'", $value);
+
         return "'" . $escaped . "'";
     }
 
     /**
      * Quote value if it is not a number or placeholder
      *
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     public function quoteIfNecessary($value)
@@ -93,7 +96,7 @@ class Helper
 
     /**
      * Informs if given value is number
-     * @param string $value
+     * @param  string $value
      * @return bool
      */
     public function isNumber($value)
@@ -103,7 +106,7 @@ class Helper
 
     /**
      * Informs if given value is a string
-     * @param string $value
+     * @param  string $value
      * @return bool
      */
     public function isString($value)
@@ -113,7 +116,7 @@ class Helper
 
     /**
      * Informs if given value is a placeholder
-     * @param string $value
+     * @param  string $value
      * @return bool
      */
     public function isPlaceholder($value)
@@ -124,8 +127,8 @@ class Helper
     /**
      * Replace the given string with the given placeholders
      *
-     * @param string $string
-     * @param array $values the key value pair of placeholders
+     * @param  string $string
+     * @param  array  $values the key value pair of placeholders
      * @return string the string to be replaced
      */
     public function replacePlaceholders($string, $values, $quoteIfNecessary = true)
@@ -134,6 +137,7 @@ class Helper
             $replacement = $quoteIfNecessary ? $this->quoteIfNecessary($value) : $value;
             $string = str_replace(":{$placeholder}", $replacement, $string);
         }
+
         return $string;
     }
 
@@ -147,7 +151,7 @@ class Helper
      *     To force return as it is
      *     array('value' => $someVar) => $someVar
      *
-     * @param mixed $value
+     * @param  mixed  $value
      * @return string
      */
     public function toDbValue($value)

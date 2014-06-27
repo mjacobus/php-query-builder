@@ -23,13 +23,14 @@ class QueryBuilder extends Select
     {
         $select = new Select();
         $select->select($params);
+
         return $select;
     }
 
     /**
      * Factory Update Builder
      *
-     * @param string $table the table to update
+     * @param  string $table the table to update
      * @return Update
      */
     public static function update($table = null)
@@ -46,7 +47,7 @@ class QueryBuilder extends Select
     /**
      * Factory Insert Builder
      *
-     * @param string $table the table to update
+     * @param  string $table the table to update
      * @return Insert
      */
     public static function insert($table = null)

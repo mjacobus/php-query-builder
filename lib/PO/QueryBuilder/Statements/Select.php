@@ -74,12 +74,13 @@ class Select extends ConditionalStatement
     /**
      * Add params to the query statement
      *
-     * @param string|array $param
+     * @param  string|array $param
      * @return self
      */
     public function select($param)
     {
         $this->getSelect()->addParams((array) $param);
+
         return $this;
     }
 
@@ -110,6 +111,7 @@ class Select extends ConditionalStatement
     public function from($params)
     {
         $this->getFrom()->setParams((array) $params);
+
         return $this;
     }
 
@@ -119,12 +121,13 @@ class Select extends ConditionalStatement
      *
      * $this->groupBy('foo')->groupBy('bar DESC')->groupBy(array('foobar'));
      *
-     * @param string $params the field and direction to order by
+     * @param  string $params the field and direction to order by
      * @return self
      */
     public function groupBy($params)
     {
         $this->getGroup()->addParams((array) $params);
+
         return $this;
     }
 }

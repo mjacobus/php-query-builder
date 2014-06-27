@@ -33,49 +33,53 @@ class Update extends ConditionalStatement
     /**
      * Sets (overrides) the values to be set
      *
-     * @param array $values the values to set
+     * @param  array $values the values to set
      * @return self
      */
     public function set(array $values = array())
     {
         $this->getSet()->set($values);
+
         return $this;
     }
 
     /**
      * Adds values to be set
      *
-     * @param array $values the values to set
+     * @param  array $values the values to set
      * @return self
      */
     public function addSets(array $values = array())
     {
         $this->getSet()->addSets($values);
+
         return $this;
     }
 
     /**
      * Set a column and a value
      *
-     * @param string $column
-     * @param string $value
+     * @param  string $column
+     * @param  string $value
      * @return self
      */
     public function addSet($column, $value)
     {
         $this->getSet()->addSet($column, $value);
+
         return $this;
     }
 
     /**
      * Set the table to update
      *
-     * @param string $table
+     * @param  string $table
      * @return self
      */
     public function table($table)
     {
         $this->getUpdate()->table($table);
+
         return $this;
     }
 

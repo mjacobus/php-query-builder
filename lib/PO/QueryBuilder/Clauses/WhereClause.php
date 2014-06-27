@@ -16,9 +16,9 @@ class WhereClause extends Base
      *     $this->addContition('a', '2', '!=')
      *
      *
-     * @param string $fieldOrCondition
-     * @param string $value
-     * @param string $operator
+     * @param  string                              $fieldOrCondition
+     * @param  string                              $value
+     * @param  string                              $operator
      * @return PO\QueryBuilder\Clauses\WhereClause
      */
     public function addCondition($fieldOrCondition, $value = null, $operator = '=')
@@ -45,7 +45,7 @@ class WhereClause extends Base
      *       array('x', '1', '!=')
      *   ));
      *
-     * @param array $conditions
+     * @param  array                               $conditions
      * @return PO\QueryBuilder\Clauses\WhereClause
      */
     public function addConditions(array $conditions = array())
@@ -62,7 +62,6 @@ class WhereClause extends Base
 
         return $this;
     }
-
 
     /**
      * Return the resulting query
