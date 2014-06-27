@@ -13,6 +13,10 @@
     },
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*",
+        "phpmd/phpmd": "*",
+        "fabpot/php-cs-fixer": "dev-master",
+        "sebastian/phpdcd": "*",
+        "sebastian/phpcpd": "*",
         "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
