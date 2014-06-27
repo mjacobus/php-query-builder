@@ -4,7 +4,6 @@ namespace POTests;
 
 use PHPUnit_Framework_TestCase;
 use PO\QueryBuilder;
-use PO\QueryBuilder\Helper;
 
 class QueryBuilderTest extends PHPUnit_Framework_TestCase
 {

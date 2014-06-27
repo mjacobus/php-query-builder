@@ -53,7 +53,6 @@ class HelperTest extends PHPUnit_Framework_TestCase
     public function itQuotesValue()
     {
 
-
         $this->assertEquals('"a"', $this->o->quote('a'));
         $this->assertEquals('"abc"', $this->o->quote('abc'));
         $this->assertEquals('"1"', $this->o->quote('1'));

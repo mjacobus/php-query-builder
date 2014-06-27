@@ -28,7 +28,6 @@ class InsertTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PO\QueryBuilder\Statements\Base', $this->o);
     }
 
-
     /**
      * @test
      */

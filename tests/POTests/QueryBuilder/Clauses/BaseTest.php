@@ -9,7 +9,7 @@ use PO\QueryBuilder\Clauses\Base;
 /**
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
  */
-class ClauseTest extends PHPUnit_Framework_TestCase
+class BaseTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @param PO\QueryBuilder\Clauses\Base $query
