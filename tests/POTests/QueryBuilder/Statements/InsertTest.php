@@ -41,6 +41,14 @@ class InsertTest extends PHPUnit_Framework_TestCase
 
         $sql = 'INSERT INTO table_name (field_1, number, id) VALUES ("some_value", 1, 2)';
         $this->assertEquals($sql, $this->o->toSql());
+
+        $sql .= ' RETURNING id';
+        $this->o->returning('id');
+        $this->assertEquals($sql, $this->o->toSql());
+
+        $sql .= ', name, last_name';
+        $this->o->returning(array('name', 'last_name'));
+        $this->assertEquals($sql, $this->o->toSql());
     }
 
     /**

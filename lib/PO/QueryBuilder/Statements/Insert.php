@@ -2,6 +2,8 @@
 
 namespace PO\QueryBuilder\Statements;
 
+use PO\QueryBuilder\Clauses\ReturningClause;
+
 /**
  * Helper for building INSERT SQL
  * @author Marcelo Jacobus <marcelo.jacobus@gmail.com>
@@ -18,6 +20,20 @@ class Insert extends Base
      * @var array the values to insert into the table
      */
     protected $values;
+
+    /**
+     * @var ReturningClause
+     */
+    protected $returning;
+
+    /**
+     * @{inheritDocs}
+     */
+    public function __construct($options = array())
+    {
+        parent::__construct($options);
+        $this->returning = new ReturningClause($this);
+    }
 
     /**
      * Set the table to insert data into
@@ -83,6 +99,17 @@ class Insert extends Base
             $sql[] = '(' . implode(', ', $columnValues) . ')';
         }
 
+        if (!$this->returning->isEmpty()) {
+            $sql[] = $this->returning->toSql();
+        }
+
         return implode(' ', $sql);
+    }
+
+    public function returning($params)
+    {
+        $this->returning->addParams((array) $params);
+
+        return $this;
     }
 }
