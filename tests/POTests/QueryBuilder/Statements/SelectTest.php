@@ -12,82 +12,55 @@ class SelectTest extends PHPUnit_Framework_TestCase
     /**
      * @var Select
      */
-    protected $o;
+    protected $object;
 
     public function setUp()
     {
-        $this->o = new Select();
-        $this->o->getHelper()->setDoubleQuoted(true);
+        $this->object = new Select();
+        $this->object->getHelper()->setDoubleQuoted(true);
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectSelectClause()
+    public function testGetSelect()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\SelectClause', $this->o->getSelect());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\SelectClause', $this->object->getSelect());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectFromClause()
+    public function testGetFrom()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\FromClause', $this->o->getFrom());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\FromClause', $this->object->getFrom());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectWhereClause()
+    public function testGetWhere()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\WhereClause', $this->o->getWhere());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\WhereClause', $this->object->getWhere());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectOrderClause()
+    public function testGetOrder()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\OrderClause', $this->o->getOrder());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\OrderClause', $this->object->getOrder());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectLimitClause()
+    public function testGetLimit()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\LimitClause', $this->o->getLimit());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\LimitClause', $this->object->getLimit());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectJoinsClause()
+    public function testGetJoins()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\JoinClause', $this->o->getJoins());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\JoinClause', $this->object->getJoins());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectGroupClause()
+    public function testGetGroup()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\GroupClause', $this->o->getGroup());
+        $this->assertInstanceOf('PO\QueryBuilder\Clauses\GroupClause', $this->object->getGroup());
     }
 
-    /**
-     * @test
-     */
-    public function itCanOverrideTheHelperCorrectHelper()
+    public function testGetHelper()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Helper', $this->o->getHelper());
+        $this->assertInstanceOf('PO\QueryBuilder\Helper', $this->object->getHelper());
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectHelper()
+    public function testItInitializesWithTheCorrectHelper()
     {
         $helper = new Helper();
         $options = array('helper' => $helper);
@@ -95,73 +68,61 @@ class SelectTest extends PHPUnit_Framework_TestCase
         $this->assertSame($helper, $object->getHelper());
     }
 
-    /**
-     * @test
-     */
-    public function itCanSetAddFieldsToTheSelectClauseAsStringAndReturnBuilder()
+    public function testItCanSetAddFieldsToTheSelectClauseAsStringAndReturnBuilder()
     {
-        $object = $this->o->select('field')->select(array('one', 'two'));
-        $this->assertSame($this->o, $object);
-        $this->assertEquals(array('field', 'one', 'two'), $this->o->getSelect()->getParams());
+        $object = $this->object->select('field')->select(array('one', 'two'));
+        $this->assertSame($this->object, $object);
+        $this->assertEquals(array('field', 'one', 'two'), $this->object->getSelect()->getParams());
     }
 
-    /**
-     * @test
-     */
-    public function itCanSetFromAsStringAndReturnBuilder()
+    public function testCanSetFromAsStringAndReturnBuilder()
     {
-        $object = $this->o->from('table');
-        $this->assertSame($this->o, $object);
-        $this->assertEquals(array('table'), $this->o->getFrom()->getParams());
+        $object = $this->object->from('table');
+        $this->assertSame($this->object, $object);
+        $this->assertEquals(array('table'), $this->object->getFrom()->getParams());
 
-        $object = $this->o->from(array('table1', 'table2'));
-        $this->assertEquals(array('table1', 'table2'), $this->o->getFrom()->getParams());
+        $object = $this->object->from(array('table1', 'table2'));
+        $this->assertEquals(array('table1', 'table2'), $this->object->getFrom()->getParams());
     }
 
-    /**
-     * @test
-     */
-    public function itCanConvertQueryToString()
+    public function testItCanConvertQueryToString()
     {
         $sql = 'SELECT a';
-        $this->o->select('a');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->select('a');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' FROM table';
-        $this->o->from('table');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->from('table');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' INNER JOIN table2';
-        $this->o->innerJoin('table2');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->innerJoin('table2');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' WHERE a = "b" AND b = 1';
-        $this->o->where('a', 'b')->where(array('b' => 1));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->where('a', 'b')->where(array('b' => 1));
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' GROUP BY group1, group2';
-        $this->o->groupBy(array('group1'))->groupBy('group2');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->groupBy(array('group1'))->groupBy('group2');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' ORDER BY foo, bar DESC';
-        $this->o->orderBy(array('foo', 'bar DESC'));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->orderBy(array('foo', 'bar DESC'));
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' LIMIT 10';
-        $this->o->limit(10);
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->limit(10);
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ', 3';
-        $this->o->limit(10, 3);
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->limit(10, 3);
+        $this->assertEquals($sql, $this->object->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itGetSqlReplacingThePlaceHolders()
+    public function testItGetSqlReplacingThePlaceHolders()
     {
-        $this->o->from('table')->where(array(
+        $this->object->from('table')->where(array(
             'size > :min',
             'size < :max',
             'count != :min',
@@ -176,43 +137,31 @@ class SelectTest extends PHPUnit_Framework_TestCase
 
         $sql = 'SELECT * FROM table WHERE size > 10 AND size < 20 AND count != 10 AND name = "foo"';
 
-        $this->assertEquals($sql, $this->o->toSql($params));
+        $this->assertEquals($sql, $this->object->toSql($params));
     }
 
-    /**
-     * @test
-     */
-    public function itAddsInnerJoin()
+    public function testItAddsInnerJoin()
     {
-        $this->o->from('table')->innerJoin('t1')->innerJoin('t2', 't1.id = t2.t1_id');
+        $this->object->from('table')->innerJoin('t1')->innerJoin('t2', 't1.id = t2.t1_id');
         $sql = 'INNER JOIN t1 INNER JOIN t2 ON t1.id = t2.t1_id';
-        $this->assertEquals($sql, $this->o->getJoins()->toSql());
+        $this->assertEquals($sql, $this->object->getJoins()->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itAddsLeftJoin()
+    public function testItAddsLeftJoin()
     {
-        $this->o->from('table')->leftJoin('t1')->leftJoin('t3', 't1.id = t3.t1_id');
+        $this->object->from('table')->leftJoin('t1')->leftJoin('t3', 't1.id = t3.t1_id');
         $sql = 'LEFT JOIN t1 LEFT JOIN t3 ON t1.id = t3.t1_id';
-        $this->assertEquals($sql, $this->o->getJoins()->toSql());
+        $this->assertEquals($sql, $this->object->getJoins()->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itCallsToSqlWhenConvertingToString()
+    public function testItCallsToSqlWhenConvertingToString()
     {
-        $this->assertEquals($this->o->toSql(), (string) $this->o);
+        $this->assertEquals($this->object->toSql(), (string) $this->object);
     }
 
-    /**
-     * @test
-     */
-    public function itProvidesInterfaceForAddingConditions()
+    public function testItProvidesInterfaceForAddingConditions()
     {
-        $this->o->where('a = 1')
+        $this->object->where('a = 1')
             ->where('a', 'b')
             ->where('a', 'x', '!=')
             ->where(array(
@@ -228,30 +177,24 @@ class SelectTest extends PHPUnit_Framework_TestCase
             'foobar = "foo"',
         );
 
-        $this->assertEquals($expectedParams, $this->o->getWhere()->getParams());
+        $this->assertEquals($expectedParams, $this->object->getWhere()->getParams());
     }
 
-    /**
-     * @test
-     */
-    public function itProvidesInterfaceForAddingOrder()
+    public function testItProvidesInterfaceForAddingOrder()
     {
-        $this->o->orderBy('a')->orderBy(array('b', 'c'));
+        $this->object->orderBy('a')->orderBy(array('b', 'c'));
 
         $expectedParams = array( 'a', 'b', 'c');
 
-        $this->assertEquals($expectedParams, $this->o->getOrder()->getParams());
+        $this->assertEquals($expectedParams, $this->object->getOrder()->getParams());
     }
 
-    /**
-     * @test
-     */
-    public function itProvidesInterfaceForAddingGroup()
+    public function testItProvidesInterfaceForAddingGroup()
     {
-        $this->o->groupBy('a')->groupBy(array('b', 'c'));
+        $this->object->groupBy('a')->groupBy(array('b', 'c'));
 
         $expectedParams = array( 'a', 'b', 'c');
 
-        $this->assertEquals($expectedParams, $this->o->getGroup()->getParams());
+        $this->assertEquals($expectedParams, $this->object->getGroup()->getParams());
     }
 }
