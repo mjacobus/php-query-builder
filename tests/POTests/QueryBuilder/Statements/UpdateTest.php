@@ -12,74 +12,71 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     /**
      * @var Update
      */
-    protected $o;
+    protected $object;
 
     public function setUp()
     {
-        $this->o = new Update();
-        $this->o->getHelper()->setDoubleQuoted(true);
+        $this->object = new Update();
+        $this->object->getHelper()->setDoubleQuoted(true);
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectUpdateClause()
+    public function testGetUpdate()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\UpdateClause', $this->o->getUpdate());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\UpdateClause',
+            $this->object->getUpdate()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectSetClause()
+    public function testGetSet()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\SetClause', $this->o->getSet());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\SetClause',
+            $this->object->getSet()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectWhereClause()
+    public function testGetWhere()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\WhereClause', $this->o->getWhere());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\WhereClause',
+            $this->object->getWhere()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectOrderClause()
+    public function testGetOrder()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\OrderClause', $this->o->getOrder());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\OrderClause',
+            $this->object->getOrder()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectLimitClause()
+    public function testGetLimit()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\LimitClause', $this->o->getLimit());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\LimitClause',
+            $this->object->getLimit()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectJoinsClause()
+    public function testGetJoins()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Clauses\JoinClause', $this->o->getJoins());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Clauses\JoinClause',
+            $this->object->getJoins()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itCanOverrideTheHelperCorrectHelper()
+    public function testGetDefaultHelper()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Helper', $this->o->getHelper());
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Helper',
+            $this->object->getHelper()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itInitializesWithTheCorrectHelper()
+    public function testOverridesHeleper()
     {
         $helper = new Helper();
         $options = array('helper' => $helper);
@@ -87,49 +84,43 @@ class UpdateTest extends PHPUnit_Framework_TestCase
         $this->assertSame($helper, $object->getHelper());
     }
 
-    /**
-     * @test
-     */
-    public function itCanConvertQueryToString()
+    public function testCanConvertQueryToString()
     {
         $sql = 'UPDATE table';
-        $this->o->table('table');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->table('table');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' INNER JOIN table2';
-        $this->o->innerJoin('table2');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->innerJoin('table2');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' SET foo = "bar", age = 12';
-        $this->o->set(array(
+        $this->object->set(array(
             'foo' => 'bar',
             'age' => 12
         ));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' WHERE a = "b" AND b = 1';
-        $this->o->where('a', 'b')->where(array('b' => 1));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->where('a', 'b')->where(array('b' => 1));
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' ORDER BY foo, bar DESC';
-        $this->o->orderBy(array('foo', 'bar DESC'));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->orderBy(array('foo', 'bar DESC'));
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' LIMIT 10';
-        $this->o->limit(10);
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->limit(10);
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ', 2';
-        $this->o->limit(10, 2);
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->limit(10, 2);
+        $this->assertEquals($sql, $this->object->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itGetSqlReplacingThePlaceHolders()
+    public function testGetSqlReplacingThePlaceHolders()
     {
-        $this->o->table('table')->set(array(
+        $this->object->table('table')->set(array(
             'name' => ':name',
             'age'  => ':age'
         ));
@@ -140,43 +131,31 @@ class UpdateTest extends PHPUnit_Framework_TestCase
             'age' => 12
         );
 
-        $this->assertEquals($sql, $this->o->toSql($params));
+        $this->assertEquals($sql, $this->object->toSql($params));
     }
 
-    /**
-     * @test
-     */
-    public function itAddsInnerJoin()
+    public function testAddsInnerJoin()
     {
-        $this->o->innerJoin('t1')->innerJoin('t2', 't1.id = t2.t1_id');
+        $this->object->innerJoin('t1')->innerJoin('t2', 't1.id = t2.t1_id');
         $sql = 'INNER JOIN t1 INNER JOIN t2 ON t1.id = t2.t1_id';
-        $this->assertEquals($sql, $this->o->getJoins()->toSql());
+        $this->assertEquals($sql, $this->object->getJoins()->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itAddsLeftJoin()
+    public function testAddsLeftJoin()
     {
-        $this->o->leftJoin('t1')->leftJoin('t2', 't1.id = t2.t1_id');
+        $this->object->leftJoin('t1')->leftJoin('t2', 't1.id = t2.t1_id');
         $sql = 'LEFT JOIN t1 LEFT JOIN t2 ON t1.id = t2.t1_id';
-        $this->assertEquals($sql, $this->o->getJoins()->toSql());
+        $this->assertEquals($sql, $this->object->getJoins()->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itCallsToSqlWhenConvertingToString()
+    public function testCallsToSqlWhenConvertingToString()
     {
-        $this->assertEquals($this->o->toSql(), (string) $this->o);
+        $this->assertEquals($this->object->toSql(), (string) $this->object);
     }
 
-    /**
-     * @test
-     */
-    public function itProvidesInterfaceForAddingConditions()
+    public function testProvidesInterfaceForAddingConditions()
     {
-        $this->o->where('a = 1')
+        $this->object->where('a = 1')
             ->where('a', 'b')
             ->where('a', 'x', '!=')
             ->where(array(
@@ -192,18 +171,21 @@ class UpdateTest extends PHPUnit_Framework_TestCase
             'foobar = "foo"',
         );
 
-        $this->assertEquals($expectedParams, $this->o->getWhere()->getParams());
+        $this->assertEquals(
+            $expectedParams,
+            $this->object->getWhere()->getParams()
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itProvidesInterfaceForAddingOrder()
+    public function testProvidesInterfaceForAddingOrder()
     {
-        $this->o->orderBy('a')->orderBy(array('b', 'c'));
+        $this->object->orderBy('a')->orderBy(array('b', 'c'));
 
         $expectedParams = array( 'a', 'b', 'c');
 
-        $this->assertEquals($expectedParams, $this->o->getOrder()->getParams());
+        $this->assertEquals(
+            $expectedParams,
+            $this->object->getOrder()->getParams()
+        );
     }
 }
