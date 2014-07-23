@@ -75,13 +75,10 @@ abstract class Base
      */
     public function toSql(array $params = array())
     {
-        $sql = $this->getRawQuery();
-
-        if (empty($params)) {
-            return $sql;
-        } else {
-            return $this->getHelper()->replacePlaceholders($sql, $params);
-        }
+        return $this->getHelper()->replacePlaceholders(
+            $this->getRawQuery(),
+            $params
+        );
     }
 
     /**
