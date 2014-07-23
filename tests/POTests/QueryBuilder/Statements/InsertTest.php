@@ -12,57 +12,53 @@ class InsertTest extends PHPUnit_Framework_TestCase
     /**
      * @var Insert
      */
-    protected $o;
+    protected $object;
 
     public function setUp()
     {
-        $this->o = new Insert;
-        $this->o->getHelper()->setDoubleQuoted(true);
+        $this->object = new Insert;
+        $this->object->getHelper()->setDoubleQuoted(true);
     }
 
-    /**
-     * @test
-     */
-    public function itIsAQueryBuilderBase()
+    public function testIsAQueryBuilderBase()
     {
-        $this->assertInstanceOf('PO\QueryBuilder\Statements\Base', $this->o);
+        $this->assertInstanceOf(
+            'PO\QueryBuilder\Statements\Base',
+            $this->object
+        );
     }
 
-    /**
-     * @test
-     */
-    public function itResolvesSql()
+    public function testResolvesSql()
     {
-        $this->o->into('table_name')->values(array(
+        $this->object->into('table_name')->values(array(
             'field_1' => 'some_value',
             'number'  => 1,
             'id'      => '2',
         ));
 
-        $sql = 'INSERT INTO table_name (field_1, number, id) VALUES ("some_value", 1, 2)';
-        $this->assertEquals($sql, $this->o->toSql());
+        $sql = 'INSERT INTO table_name (field_1, number, id)'
+             . ' VALUES ("some_value", 1, 2)';
+
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ' RETURNING id';
-        $this->o->returning('id');
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->returning('id');
+        $this->assertEquals($sql, $this->object->toSql());
 
         $sql .= ', name, last_name';
-        $this->o->returning(array('name', 'last_name'));
-        $this->assertEquals($sql, $this->o->toSql());
+        $this->object->returning(array('name', 'last_name'));
+        $this->assertEquals($sql, $this->object->toSql());
     }
 
-    /**
-     * @test
-     */
-    public function itResolvesSqlReplacingPlaceholders()
+    public function testResolvesSqlReplacingPlaceholders()
     {
-        $this->o->into('table_name')->values(array(
+        $this->object->into('table_name')->values(array(
             'name' => ':name',
             'age'  => ':age',
         ));
 
         $sql = 'INSERT INTO table_name (name, age) VALUES ("foo", 18)';
-        $this->assertEquals($sql, $this->o->toSql(array(
+        $this->assertEquals($sql, $this->object->toSql(array(
                 'name' => 'foo',
                 'age'  => 18
         )));
