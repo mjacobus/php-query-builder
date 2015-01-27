@@ -2,6 +2,10 @@
 
 Query Builder for easing the SQL composing
 
+## Important notice: Deprecated in favor of [Koine/QueryBuilder](https://github.com/koinephp/QueryBuilder)
+
+This project was deprecated in favor of [Koine/QueryBuilder](https://github.com/koinephp/QueryBuilder)
+
 [![Build Status](https://travis-ci.org/mjacobus/php-query-builder.png?branch=master)](https://travis-ci.org/mjacobus/php-query-builder)
 [![Coverage Status](https://coveralls.io/repos/mjacobus/php-query-builder/badge.png)](https://coveralls.io/r/mjacobus/php-query-builder)
 [![Code Climate](https://codeclimate.com/github/mjacobus/php-query-builder.png)](https://codeclimate.com/github/mjacobus/php-query-builder)
